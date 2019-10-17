@@ -160,15 +160,15 @@ return [
             'submenu' => [
                 [
                     'text' => 'Danh sách chủ đề',
-                    'url'  => url('admin/listening'),
+                    'url'  => 'admin/listening'
                 ],
     
                 [
                     'text' => 'Thêm mới chủ đề',
-                    'url'  => url('admin/listening/add-topic'),
+                    'url'  => 'admin/listening/add-topic'
                 ],
                 
-            ],
+            ], // d m 
         ],
         [
             'text'    => 'Quản lý từ vựng',
@@ -191,12 +191,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Danh sách chủ đề',
-                    'url'  => url('admin/listening'),
+                    'url'  => 'admin/listening'
                 ],
     
                 [
                     'text' => 'Thêm mới chủ đề',
-                    'url'  => url('admin/listening/add-topic'),
+                    'url'  => 'admin/listening/add-topic'
                 ],
             ],
         ],

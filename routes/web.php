@@ -31,7 +31,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
          *  Nghe
          */
         
-        Route::get('/','listening\ListeningController@index');
+        Route::get('/','listening\ListeningController@index')->name('listening-index');
         Route::get('/topic/{id}','listening\ListeningController@getAllPost');
         Route::get('/add-topic','listening\ListeningController@addTopic');
     });
