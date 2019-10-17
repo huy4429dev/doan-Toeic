@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('content')->nullable();
             $table->mediumInteger('topic_id');
             $table->timestamps();
+            // vi du may cay tren chung do minh them nhung cai can cua minh vao thoi ok chua thay ok thay
         });
     }
 
