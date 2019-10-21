@@ -142,7 +142,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="go-learn">
-                                                    <a href="nguphap">Học ngữ pháp căn bản</a>
+                                                    <a href="{{ route('showGramar') }}">Học ngữ pháp căn bản</a>
                                                 </div>
                                             </div>
 

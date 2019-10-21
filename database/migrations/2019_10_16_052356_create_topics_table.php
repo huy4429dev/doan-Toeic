@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration
             $table->string('title',255);
             $table->string('thumbnail',255); 
             $table->smallInteger('category_id');
+            $table->smallInteger('level')->nullable();
             $table->timestamps();
         });
     }

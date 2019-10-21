@@ -190,14 +190,14 @@ return [
             'icon'    => 'fas fa-folder',
             'submenu' => [
                 [
-                    'text' => 'Danh sách chủ đề',
-                    'url'  => 'admin/listening'
+                    'text' => 'Danh sách chủ đề ngữ pháp',
+                    'url'  => 'admin/gramar/show'
+                ],
+                [
+                    'text' => 'Danh sách bài viết ngữ pháp',
+                    'url'  => 'admin/postgramar/show'
                 ],
     
-                [
-                    'text' => 'Thêm mới chủ đề',
-                    'url'  => 'admin/listening/add-topic'
-                ],
             ],
         ],
         
