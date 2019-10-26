@@ -18,6 +18,10 @@ class CreatePostsTable extends Migration
             $table->string('title',255);
             $table->string('thumbnail',255)->nullable();
             $table->text('content')->nullable();
+            $table->string('description',255)->nullable();
+            $table->string('audio_ques',255)->nullable();
+            $table->string('answer',255)->nullable(); 
+            $table->tinyInteger('level')->nullable();
             $table->mediumInteger('topic_id');
             $table->timestamps();
         });

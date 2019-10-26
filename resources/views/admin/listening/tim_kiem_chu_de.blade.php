@@ -1,14 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Ngữ pháp')
+@section('title', 'AdminLTE')
 
+@section('content_header')
+<h1>Listening</h1>
+@stop
 @section('content')
-
-<div class="box">
+<div class="box box-primary">
     <div class="box-header">
-        <h3 class="box-title">Danh sách chủ đề ngữ pháp</h3>
+        <h3 class="box-title">Danh sách chủ đề</h3>
     </div>
-    <a style="float: right; margin-right: 20px;" href="{{ route('saveGramar') }}" class="btn btn-success btn-add">Thêm</a>
 
     <form action="{{ route('searchGramar') }}" method="get" role="search">
 
@@ -34,11 +35,9 @@
                         <thead>
                             <tr role="row">
                                 <th tabindex="0">id</th>
-                                <th class="sorting" tabindex="0">Tiêu đề chủ đề</th>
-                                <th class="sorting" tabindex="0">Hình ảnh</th>
-                                <th class="sorting" tabindex="0">Level</th>
-                                <th tabindex="0"></th>
-                                <th tabindex="0"></th>
+                                <th class="sorting" tabindex="0">Title</th>
+                                <th class="sorting" tabindex="0">Thumbnail</th>
+                                <th class="sorting" tabindex="0">Action</th>
                             </tr>
                             @if (session('thongbao'))
                             <div class="alert alert-success alert-dismissible">
@@ -48,29 +47,14 @@
                         </thead>
                         <tbody>
                             @endif
-                            @foreach($gramars as $gramar)
+                            @foreach($topics as $topic)
                             <tr role="row" class="odd">
-                                <td class="sorting_1">{{ $gramar->id }}</td>
-                                <td class="sorting_1">{{ $gramar->title }}</td>
-                                <td class="sorting_1"><img width="70px;" src="/uploads/gramar/{{ $gramar->thumbnail }}" /></td>
-                                <td class="sorting_1">
-                                    @if($gramar->level == 1)
-                                    {{'Cấp 1'}}
-                                    @elseif($gramar->level == 2)
-                                    {{'Cấp 2'}}
-                                    @elseif($gramar->level == 3)
-                                    {{'Cấp 3'}}
-                                    @elseif($gramar->level == 4)
-                                    {{'Cấp 4'}}
-                                    @elseif($gramar->level == 5)
-                                    {{'Cấp 5 '}}
-                                    @endif
-                                </td>
+                                <td class="sorting_1">{{ $topic->id }}</td>
+                                <td class="sorting_1">{{ $topic->title }}</td>
+                                <td class="sorting_1"><img width="70px" height="70px" src="/uploads/listening/{{ $topic->thumbnail }}" /></td>
                                 <td style="width: 50px;">
-                                    <a class="btn btn-primary" href="update/{{ $gramar->id }}">Sửa</a>
+                                    <a class="btn btn-danger"  href="listening/delete-topic/{{ $topic->id }}">Xóa</a>
                                 </td>
-                                <td style="width: 50px;">
-                                    <a class="btn btn-danger"  href="delete/{{ $gramar->id }}">Xóa</a>
                                 </td>
                             </tr>
 
@@ -87,7 +71,7 @@
                 <div class="col-sm-7">
                     <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                         <ul class="pagination pagination-sm no-margin pull-right">
-                            <li>{{ $gramars->links() }}</li>
+                            <li>{{ $topics->links() }}</li>
                         </ul>
                     </div>
                 </div>

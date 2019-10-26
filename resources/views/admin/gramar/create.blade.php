@@ -3,13 +3,13 @@
 @section('title', 'Ngữ pháp')
 
 @section('content_header')
-<h1>Tạo chủ đề ngữ pháp</h1>
+<h1>Gramar</h1>
 @stop
 
 @section('content')
 <div class="box box-primary">
   <div class="box-header with-border">
-    <h3 class="box-title">Chủ đề ngữ pháp</h3>
+    <h3 class="box-title">Thêm mới chủ đề</h3>
   </div>
   <!-- /.box-header -->
   <!-- form start -->
@@ -43,7 +43,7 @@
       </select>
       <label> Title</label>
       <input name="title" type="text" class="form-control" placeholder="Title">
-      <label> Hình ảnh chính </label>
+      <label>Thumbnail</label>
       <input class="btn btn-app" type="file" name="thumbnail" multiple>
       <br>
       <label>Level học ngữ pháp:</label>
