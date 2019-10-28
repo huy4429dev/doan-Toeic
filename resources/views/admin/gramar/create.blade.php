@@ -3,6 +3,7 @@
 @section('title', 'Ngữ pháp')
 
 @section('content_header')
+
 @stop
 
 @section('content')
@@ -19,7 +20,6 @@
                     @endforeach
                 </div>
             @endif
-
             @if (session('thongbao'))
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -65,10 +65,8 @@
                     <label class="radio-inline">
                         <input name="level" value="5" type="radio">Cấp 5
                     </label>
-
                 </div>
                 <!-- /.box-body -->
-
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Thêm</button>
                 </div>

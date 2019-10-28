@@ -78,7 +78,6 @@
                                                     href="delete/{{ $gramar->id }}">Xóa</a></button>
                                     </td>
                                 </tr>
-
                             @endforeach
                             </tbody>
                             <tfoot>
