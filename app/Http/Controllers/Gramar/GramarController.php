@@ -27,16 +27,11 @@ class GramarController extends Controller
             [
                 'title'     => 'required|unique:topics,title',
                 'thumbnail' => 'required',
-               
-                
             ],
             [
                 'title.required' => 'Bạn chưa nhập tiêu đề',
                 'thumbnail.required' => 'Bạn chưa chọn hình ảnh',
-                'title.unique'   => 'Tiêu đề đã tồn tại',
-              
-                
-
+                'title.unique'   => 'Tiêu đề đã tồn tại'
             ]
         );
         $gramar = new Topic();
@@ -73,17 +68,11 @@ class GramarController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required',
-                'thumbnail' => 'required',
-              
-                
+                'title'     => 'required|unique:topics,title'
             ],
             [
                 'title.required' => 'Bạn chưa nhập tiêu đề',
-                'thumbnail.required' => 'Bạn chưa chọn hình ảnh',
-              
-                
-
+                'title.unique'   => 'Tiêu đề đã tồn tại',
             ]
         );
 

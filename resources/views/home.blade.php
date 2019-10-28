@@ -162,7 +162,7 @@
                                                 </p>
                                             </div>
                                             <div class="go-learn">
-                                                <a href="nguphap">HỌC 600 TỪ VỰNG TOEIC</a>
+                                                <a href="tu-vung">HỌC 600 TỪ VỰNG TOEIC</a>
                                             </div>
                                         </div>
                                     </div>

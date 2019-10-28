@@ -12,8 +12,7 @@
 */
 
 
-
-
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
@@ -22,9 +21,27 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::prefix('vocabulary')->group(function () {
         /**
-         *  Tu vung
+         *  Thêm - sửa - xóa chủ đề của từ vững
          */
-        Route::get('/','vocabulary\VocabularyController@index');
+        Route::get('/','vocabulary\TopicController@index');
+        Route::post('/','vocabulary\TopicController@search');
+        Route::get('create','vocabulary\TopicController@getCreate');
+        Route::post('create','vocabulary\TopicController@postCreate');
+        Route::get('update/{id}','vocabulary\TopicController@getUpdate');
+        Route::post('update/{id}','vocabulary\TopicController@postUpdate');
+        Route::get('delete/{id}','vocabulary\TopicController@delete');
+    });
+    Route::prefix('post-vocabulary')->group(function () {
+        /**
+         *  Thêm - sửa - xóa bài viết của mỗi chủ đề từ vững
+         */
+        Route::get('/{id}','vocabulary\PostController@index');
+        Route::post('/','vocabulary\PostController@search');
+        Route::get('create','vocabulary\PostController@getCreate');
+        Route::post('create','vocabulary\PostController@postCreate');
+        Route::get('update/{id}','vocabulary\PostController@getUpdate');
+        Route::post('update/{id}','vocabulary\PostController@postUpdate');
+        Route::get('delete/{id}','vocabulary\PostController@delete');
     });
     Route::prefix('listening')->group(function () {
         /**
@@ -72,3 +89,11 @@ Route::prefix('ngu-phap-tieng-anh')->group(function () {
 });
 /* chi tiết bài viết chủ để ngữ pháp */
 Route::get('/ngu-phap-tieng-anh/{id}/{title}.html', 'Gramar\pagesGramarController@detailGramar');
+
+
+//Lấy danh sách chủ đề từ vững
+Route::prefix('tu-vung')->group(function (){
+    Route::get('/','Vocabulary\VocabularyController@index');
+    Route::get('/{id}','Vocabulary\VocabularyController@detail');
+    Route::get('item/{id}','Vocabulary\VocabularyController@item');
+});

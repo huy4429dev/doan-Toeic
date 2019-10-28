@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
 
     'logout_url' => 'logout',
 
@@ -176,13 +176,8 @@ return [
             'submenu' => [
                 [
                     'text' => 'Danh sách chủ đề',
-                    'url'  => 'admin/listening'
-                ],
-    
-                [
-                    'text' => 'Thêm mới chủ đề',
-                    'url'  => 'admin/listening/add-topic'
-                ],
+                    'url'  => 'admin/vocabulary'
+                ]
             ],
         ],
         [
