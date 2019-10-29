@@ -17,7 +17,7 @@
             <a style="float: right; margin-right: 20px;" href="create/{{$topic->id}}"
                class="btn btn-success btn-add">Thêm</a>
 
-            <form method="POST" action="" role="search">
+            <form method="POST" action="{{route('post.vocabulary.search',$topic->id)}}" role="search">
                 @csrf
                 <div class="box-tools">
                     <div class="input-group input-group-sm hidden-xs"
@@ -70,7 +70,7 @@
                                                 <img id="audio{{$item->id}}" src="/uploads/image/audio_icon_blue.png"
                                                      onclick="playAudio({{$item->id}})"
                                                      au="{{$item->audio}}" style="width: 30px"
-                                                     class="audio-icon main-audio" alt="Nghe phát âm của từ build up">
+                                                     class="audio-icon main-audio" alt="Nghe phát âm">
                                                 <br>
                                             @endif
                                             <script>
@@ -107,7 +107,7 @@
                     <div class="col-sm-7">
                         <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                <li>{{ $post->links() }}</li>
+                                {{--<li>{{ $post->links() }}</li>--}}
                             </ul>
                         </div>
                     </div>

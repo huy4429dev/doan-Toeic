@@ -71,7 +71,7 @@
                         <li class="head-learning">
                             <a href="tu-vung/{{$item->id}}">
                                 <div class="img-radius">
-                                    <img src="uploads/gramar/{{$item->thumbnail}}" alt="">
+                                    <img src="uploads/vocabulary/{{$item->thumbnail}}" alt="">
                                 </div>
                                 <h3>{{$item->title}}</h3>
                             </a>
@@ -89,7 +89,7 @@
                             <li class="head-learning">
                                 <a href="tu-vung/{{$item->id}}">
                                     <div class="img-radius">
-                                        <img src="uploads/gramar/{{$item->thumbnail}}" alt="">
+                                        <img src="uploads/vocabulary/{{$item->thumbnail}}" alt="">
                                     </div>
                                     <h3>{{$item->title}}</h3>
                                 </a>

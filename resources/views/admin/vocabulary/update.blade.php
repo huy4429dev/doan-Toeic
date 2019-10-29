@@ -51,7 +51,7 @@
                     <input name="title" type="text" class="form-control" value="{{$topic->title}}">
                     <label> Hình ảnh:</label>
                     <input class="btn btn-app" type="file" name="thumbnail" multiple value="{{ $topic->thumbnail }}">
-                    <p><img width="100px;" src="/uploads/gramar/{{ $topic->thumbnail }}"/></p>
+                    <img width="100px;" src="/uploads/vocabulary/{{ $topic->thumbnail }}"/>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

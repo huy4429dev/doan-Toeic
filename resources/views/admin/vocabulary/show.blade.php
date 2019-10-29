@@ -59,7 +59,7 @@
                                         <td class="sorting_1 text-center">{{ $item->id }}</td>
                                         <td class="sorting_1 text-center">{{ $item->title }}</td>
                                         <td class="sorting_1 text-center"><img width="70px;"
-                                                                               src="/uploads/gramar/{{ $item->thumbnail }}"/>
+                                                                               src="/uploads/vocabulary/{{ $item->thumbnail }}"/>
                                         </td>
                                         <td style="width: 50px;">
                                             <button type="button" class="btn btn-block btn-default btn-sm"><a

@@ -32,7 +32,7 @@
                     {{ session('thongbao') }}
                 </div>
             @endif
-            <form role="form" method="POST" action="{{route('post.vocabulary.create')}}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{route('post.vocabulary.create')}}">
                 @csrf
                 <div class="form-group">
                     <div style="display: none">

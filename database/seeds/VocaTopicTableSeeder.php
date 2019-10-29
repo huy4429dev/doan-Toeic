@@ -15,32 +15,32 @@ class VocaTopicTableSeeder extends Seeder
         $cateTopic = [
             [
                 'title' => 'Conferences',
-                'thumbnail' => 'conferences',
+                'thumbnail' => 'conferences.png',
                 'category_id' => 1,
             ],
             [
                 'title' => 'Electronics',
-                'thumbnail' => 'electronics',
+                'thumbnail' => 'electronics.png',
                 'category_id' => 1,
             ],
             [
                 'title'    => 'Pharmacy',
-                'thumbnail'       => 'pharmacy',
+                'thumbnail'       => 'pharmacy.webp',
                 'category_id'      => 1,
             ],
             [
                 'title'    => 'Accounting',
-                'thumbnail'       => 'accounting',
+                'thumbnail'       => 'accounting.png',
                 'category_id'      => 1,
             ],
             [
                 'title'    => 'Airlines',
-                'thumbnail'       => 'airlines',
+                'thumbnail'       => 'airlines.png',
                 'category_id'      => 1,
             ],
             [
                 'title'    => 'Banking',
-                'thumbnail'       => 'banking',
+                'thumbnail'       => 'banking.png',
                 'category_id'      => 1,
             ]
         ];

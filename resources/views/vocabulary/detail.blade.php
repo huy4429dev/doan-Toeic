@@ -69,7 +69,7 @@
                     {{--hiển thị các đề tài random--}}
                     <li class="head-learning">
                         <div class="img-radius">
-                            <img src="uploads/gramar/{{$topic->thumbnail}}" alt="">
+                            <img src="uploads/vocabulary/{{$topic->thumbnail}}" alt="">
                         </div>
                         <h3>{{$topic->title}}</h3>
                     </li>
@@ -89,112 +89,6 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
-            </div>
-            <div id="content-not-learn" class="not-learn" style="display: none">
-                <div class="you-want">
-                    <h1>Hôm nay bạn muốn học chủ đề nào?</h1>
-                    <div class="topic-want">
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/conference.png" alt=""></a>
-                            <a href="">Conferences</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/electronics.png" alt=""></a>
-                            <a href="">Electronics</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/pharmacy.webp" alt=""></a>
-                            <a href="">Pharmacy</a>
-                        </div>
-                    </div>
-                    <div class="border-solid">
-                        Lựa chọn chủ đề bạn muốn học dưới đây
-                    </div>
-                    <div class="all-topics">
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-                        <div>
-                            <a href=""><img src="../asset/uploads/image/airlines.png" alt=""></a>
-                            <a href="">Airlines</a>
-                        </div>
-
-                    </div>
-                    <h1 id="learn-slogan">Học học nựa , học mại mại !</h1>
                 </div>
             </div>
         </div>

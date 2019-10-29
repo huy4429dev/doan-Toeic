@@ -60,7 +60,7 @@
             </div>
             <div class="topic-content">
                 <section class="word-intro">
-                    <h1 class="word">
+                    <h1 class="word" style="text-transform: uppercase">
                         {{$post->title}}
                         <span class="pos">
                             ({{$post->word_type}})

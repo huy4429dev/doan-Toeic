@@ -62,7 +62,7 @@ class TopicController extends Controller
 
             $name = $file->getClientOriginalName();
             $Hinh = Str::random(4) . '----' . $name;
-            $file->move('uploads/gramar', $Hinh);
+            $file->move('uploads/vocabulary', $Hinh);
             $topic->thumbnail = $Hinh;
         } else {
 
@@ -109,7 +109,7 @@ class TopicController extends Controller
             $file = $request->file('thumbnail');
             $name = $file->getClientOriginalName();
             $Hinh = Str::random(4) . '----' . $name;
-            $file->move('uploads/gramar', $Hinh);
+            $file->move('uploads/vocabulary', $Hinh);
             $topic->thumbnail = $Hinh;
         }
         $topic->save();

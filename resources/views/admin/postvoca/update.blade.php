@@ -67,7 +67,7 @@
                     </div>
                     <div>
                         <label>Phát âm:</label>
-                        <input name="pronounce" value="pronounce" type="text" class="form-control"
+                        <input name="pronounce" value="{{$post->pronounce}}" type="text" class="form-control"
                                placeholder="/abc/">
                     </div>
                     <div>

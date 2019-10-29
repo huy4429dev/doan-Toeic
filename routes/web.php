@@ -36,7 +36,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
          *  Thêm - sửa - xóa bài viết của mỗi chủ đề từ vững
          */
         Route::get('/{id}','vocabulary\PostController@index');
-        Route::post('/{id}','vocabulary\PostController@search');
+        Route::post('search/{id}','vocabulary\PostController@search')->name('post.vocabulary.search');
         Route::get('create/{id}','vocabulary\PostController@getCreate');
         Route::post('create','vocabulary\PostController@postCreate')->name('post.vocabulary.create');
         Route::get('update/{id}','vocabulary\PostController@getUpdate');
