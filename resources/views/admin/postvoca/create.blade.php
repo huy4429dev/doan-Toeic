@@ -1,17 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Từ vững')
+@section('title', 'Từ vựng')
 
 @section('content_header')
-    <a href="#" onclick="history.back()">Danh sách từ vững</a> /
-    <a>Tạo từ vững</a>
+    <a href="#" onclick="history.back()">Danh sách từ vựng</a> /
+    <a>Tạo từ vựng</a>
 @stop
 
 
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Tạo từ vững mới chủ đề:
+            <h3 class="box-title">Tạo từ vựng mới chủ đề:
                 <b style="text-transform: capitalize">{{$topic->title}}</b>
             </h3>
         </div>
@@ -42,11 +42,11 @@
                         </select>
                     </div>
                     <div>
-                        <label>Tên từ vững:</label>
+                        <label>Tên từ vựng:</label>
                         <input name="title" type="text" class="form-control" placeholder="Title">
                     </div>
                     <div>
-                        <label>Loại từ vững:</label>
+                        <label>Loại từ vựng:</label>
                         <select class="form-control" name="word_type">
                             <option value=""> -------------- </option>
                             <option value="Động từ">Động từ</option>
@@ -66,7 +66,7 @@
                         <input name="audio" type="text" class="form-control" placeholder="http://abc.mp3">
                     </div>
                     <div class="form-group">
-                        <label>Cách dùng từ vững:</label>
+                        <label>Cách dùng từ vựng:</label>
                         <textarea name="use" type="text" class="form-control ckeditor" rows="10"></textarea>
                     </div>
                 </div>

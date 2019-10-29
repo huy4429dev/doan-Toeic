@@ -1,15 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Từ vững')
+@section('title', 'Từ vựng')
 @section('content_header')
     <a href="#" onclick="history.back()">Danh sách chủ đề</a> /
-    <a>Danh sách từ vững</a>
+    <a>Danh sách từ vựng</a>
 @stop
 @section('content')
 
     <div class="box">
         <div class="box-header with-border" style="margin-bottom: 20px">
-            <h3 class="box-title">Danh sách từ vững chủ đề:
+            <h3 class="box-title">Danh sách từ vựng chủ đề:
                 <b style="text-transform: capitalize">{{$topic->title}}</b>
             </h3>
         </div>
@@ -49,10 +49,10 @@
                             <thead>
                             <tr role="row">
                                 <th class="text-center" tabindex="0">id</th>
-                                <th class="sorting text-center" tabindex="0">Tên từ vững</th>
-                                <th class="sorting text-center" tabindex="0">Loại từ vững</th>
+                                <th class="sorting text-center" tabindex="0">Tên từ vựng</th>
+                                <th class="sorting text-center" tabindex="0">Loại từ vựng</th>
                                 <th class="sorting text-center" tabindex="0">Phát âm</th>
-                                <th class="sorting text-center" tabindex="0">Cách dùng</th>
+                                <th class="sorting text-center" tabindex="0">Cách dùng từ vựng</th>
                                 <th tabindex="0"></th>
                                 <th tabindex="0"></th>
                             </tr>
@@ -107,7 +107,7 @@
                     <div class="col-sm-7">
                         <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                {{--<li>{{ $post->links() }}</li>--}}
+                                <li>{{ $post->links() }}</li>
                             </ul>
                         </div>
                     </div>

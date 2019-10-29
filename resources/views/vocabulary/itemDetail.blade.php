@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Từ vững</title>
+    <title>Từ vựng</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./font-anwesome/css/all.css">
@@ -54,7 +54,7 @@
         <div class="container bgr-white">
             <div class="main-head">
                 <ul>
-                    <li id="learning" class="active-status">Word: <span
+                    <li id="learning" class="active-status">Từ: <span
                                 style="text-transform: capitalize">{{$post->title}}</span></li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
                     <div class="usage-patterns">
                         <div class="heading-wrapper">
                             <h1 class="heading text-center">
-                                Cách dùng từ
+                                Cách dùng từ vựng
                             </h1>
                         </div>
                         <div class="all-usage-patterns-wrapper">

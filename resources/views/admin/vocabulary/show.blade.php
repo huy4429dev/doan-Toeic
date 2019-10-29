@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Từ vững')
+@section('title', 'Từ vựng')
 
 @section('content')
 
     <div class="box">
         <div class="box-header with-border" style="margin-bottom: 20px">
-            <h3 class="box-title">Danh sách chủ đề từ vững</h3>
+            <h3 class="box-title">Danh sách chủ đề từ vựng</h3>
         </div>
         <div>
             <a style="float: right; margin-right: 20px;" href="vocabulary/create"

@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <div class="border-solid text-center">
-                    <h4>Những tù vững liên quan đến chủ đề này</h4>
+                    <h4>Những từ vựng liên quan đến chủ đề này</h4>
                 </div>
                 <div class="bot-learning">
                     {{--hiển thị tất cả các đề tài--}}

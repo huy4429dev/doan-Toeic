@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Từ vững')
+@section('title', 'Từ vựng')
 @section('content_header')
-    <a href="#" onclick="history.back()">Danh sách từ vững</a> /
-    <a>Sủa từ vững</a>
+    <a href="#" onclick="history.back()">Danh sách từ vựng</a> /
+    <a>Sủa từ vựng</a>
 @stop
 
 @section('content_header')
@@ -12,7 +12,7 @@
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Sửa từ vững chủ đề:
+            <h3 class="box-title">Sửa từ vựng chủ đề:
                 <b style="text-transform: capitalize">{{$topic->title}}</b>
             </h3>
         </div>
@@ -43,12 +43,12 @@
                         </select>
                     </div>
                     <div>
-                        <label>Tên từ vững:</label>
+                        <label>Tên từ vựng:</label>
                         <input name="title" type="text" value="{{$post->title}}" class="form-control"
                                placeholder="Title">
                     </div>
                     <div>
-                        <label>Loại từ vững:</label>
+                        <label>Loại từ vựng:</label>
                         <select class="form-control" name="word_type">
                             <option value=""> --------------</option>
                             <option @if($post->word_type === "Động từ"){{"selected"}}@endif value="Động từ">
@@ -75,7 +75,7 @@
                         <input name="audio" value="{{$post->audio}}" type="text" class="form-control" placeholder="http://abc.mp3">
                     </div>
                     <div class="form-group">
-                        <label>Cách dùng từ vững:</label>
+                        <label>Cách dùng từ vựng:</label>
                         <textarea name="use" type="text" class="form-control ckeditor" rows="10">
                             {{$post->use}}
                         </textarea>
