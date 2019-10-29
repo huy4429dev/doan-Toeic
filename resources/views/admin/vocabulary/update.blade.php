@@ -3,7 +3,10 @@
 @section('title', 'Trang quản trị')
 
 @section('content_header')
+    <a href="#" onclick="history.back()">Danh sách chủ đề</a> /
+    <a>Sửa chủ đề</a>
 @stop
+
 
 @section('content')
     <div class="box box-primary">

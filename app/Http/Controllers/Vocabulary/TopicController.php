@@ -44,13 +44,13 @@ class TopicController extends Controller
     {
         $request->validate(
             [
-                'title'     => 'required|unique:topics,title',
+                'title' => 'required|unique:topics,title',
                 'thumbnail' => 'required',
             ],
             [
                 'title.required' => 'Bạn chưa nhập tiêu đề',
                 'thumbnail.required' => 'Bạn chưa chọn hình ảnh',
-                'title.unique'   => 'Tiêu đề đã tồn tại',
+                'title.unique' => 'Tiêu đề đã tồn tại',
             ]
         );
         $topic = new Topic();
@@ -77,11 +77,12 @@ class TopicController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Hiển thị form sửa chủ đề
      */
-    public function getUpdate($id){
+    public function getUpdate($id)
+    {
 
         $getTopic = Topic::find($id);
         $getCate = Category::all();
-        return view('admin.vocabulary.update',['topic'=>$getTopic,'cate'=>$getCate]);
+        return view('admin.vocabulary.update', ['topic' => $getTopic, 'cate' => $getCate]);
     }
 
     /**
@@ -90,14 +91,15 @@ class TopicController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * Thực hiện sửa chủ đề
      */
-    public function  postUpdate(Request $request, $id){
+    public function postUpdate(Request $request, $id)
+    {
         $request->validate(
             [
-                'title'     => 'required|unique:topics,title',
+                'title' => 'required|unique:topics,title',
             ],
             [
                 'title.required' => 'Bạn chưa nhập tiêu đề',
-                'title.unique'   => 'Tiêu đề đã tồn tại',
+                'title.unique' => 'Tiêu đề đã tồn tại',
             ]
         );
 
@@ -119,18 +121,20 @@ class TopicController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * Xóa chủ đề
      */
-    public function delete($id){
+    public function delete($id)
+    {
         $topic = Topic::find($id);
         $topic->delete();
         return redirect('admin/vocabulary')->with('thongbao', 'Xóa thành công');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $getTopic = DB::table('Topics')
             ->where('category_id', 1)
-            ->where('id','like','%'.$request->id.'%')
+            ->where('id', 'like', '%' . $request->id . '%')
             ->orderBy('id', 'DESC')
             ->paginate(6);
-        return view('admin.vocabulary.show', ['data' => $getTopic]);
+        return view('admin.vocabulary.show', ['data' => $getTopic, 'id' => $request->id]);
     }
 }

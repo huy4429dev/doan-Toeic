@@ -12,7 +12,7 @@ class Topic extends Model
     public function category(){
     	return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
-    public function post(){
+    public function posts(){
     	return $this->hasMany('App\Models\Post', 'topic_id', 'id');
     }
 }

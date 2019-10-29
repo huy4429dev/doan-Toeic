@@ -1,15 +1,20 @@
 @extends('adminlte::page')
 
 @section('title', 'Từ vững')
-
+@section('content_header')
+    <a href="#" onclick="history.back()">Danh sách chủ đề</a> /
+    <a>Danh sách từ vững</a>
+@stop
 @section('content')
 
     <div class="box">
         <div class="box-header with-border" style="margin-bottom: 20px">
-            <h3 class="box-title">Danh sách chủ đề từ vững</h3>
+            <h3 class="box-title">Danh sách từ vững chủ đề:
+                <b style="text-transform: capitalize">{{$topic->title}}</b>
+            </h3>
         </div>
         <div>
-            <a style="float: right; margin-right: 20px;" href="vocabulary/create"
+            <a style="float: right; margin-right: 20px;" href="create/{{$topic->id}}"
                class="btn btn-success btn-add">Thêm</a>
 
             <form method="POST" action="" role="search">
@@ -17,7 +22,7 @@
                 <div class="box-tools">
                     <div class="input-group input-group-sm hidden-xs"
                          style="width: 200px; float: left; margin-left: 10px;">
-                        <input type="text" name="id" class="form-control pull-right" placeholder="Tìm kiếm">
+                        <input type="text" name="id" value="@if(isset($id)){{$id}}@endif" class="form-control pull-right" placeholder="Tìm kiếm">
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
@@ -43,12 +48,11 @@
                             {{--title--}}
                             <thead>
                             <tr role="row">
-                                <th tabindex="0">id</th>
-                                <th class="sorting" tabindex="0">Tên từ</th>
-                                <th class="sorting" tabindex="0">Loại từ</th>
-                                <th class="sorting" tabindex="0">Phát âm</th>
-                                <th class="sorting" tabindex="0">Cách dùng</th>
-                                <th class="sorting" tabindex="0">Âm thanh</th>
+                                <th class="text-center" tabindex="0">id</th>
+                                <th class="sorting text-center" tabindex="0">Tên từ vững</th>
+                                <th class="sorting text-center" tabindex="0">Loại từ vững</th>
+                                <th class="sorting text-center" tabindex="0">Phát âm</th>
+                                <th class="sorting text-center" tabindex="0">Cách dùng</th>
                                 <th tabindex="0"></th>
                                 <th tabindex="0"></th>
                             </tr>
@@ -58,19 +62,35 @@
                             @foreach($post as $item)
                                 <a href="http://localhost:8000/admin/dashboard">
                                     <tr role="row" class="odd">
-                                        <td class="sorting_1">{{ $item->id }}</td>
-                                        <td class="sorting_1">{{ $item->title }}</td>
-                                        <td class="sorting_1">{{$item->word_type }}</td>
-                                        <td class="sorting_1">{{$item->pronounce }}</td>
+                                        <td class="sorting_1 text-center">{{ $item->id }}</td>
+                                        <td class="sorting_1 text-center">{{ $item->title }}</td>
+                                        <td class="sorting_1 text-center">{{$item->word_type }}</td>
+                                        <td class="sorting_1 text-center">
+                                            @if($item->audio != "")
+                                                <img id="audio{{$item->id}}" src="/uploads/image/audio_icon_blue.png"
+                                                     onclick="playAudio({{$item->id}})"
+                                                     au="{{$item->audio}}" style="width: 30px"
+                                                     class="audio-icon main-audio" alt="Nghe phát âm của từ build up">
+                                                <br>
+                                            @endif
+                                            <script>
+                                                function playAudio(id) {
+                                                    var str = "audio" + id;
+                                                    var audio = new Audio(document.getElementById(str).getAttribute("au"));
+                                                    audio.play();
+                                                }
+                                            </script>
+
+                                            {{ $item->pronounce }}
+                                        </td>
                                         <td class="sorting_1">{{$item->use }}</td>
-                                        <td class="sorting_1">{{$item->audio }}</td>
                                         <td style="width: 50px;">
                                             <button type="button" class="btn btn-block btn-default btn-sm"><a
-                                                        href="vocabulary/update/{{ $item->id }}">Sửa</a></button>
+                                                        href="update/{{ $item->id }}">Sửa</a></button>
                                         </td>
                                         <td style="width: 50px;">
                                             <button type="button" class="btn btn-block btn-default btn-sm"><a
-                                                        href="vocabulary/delete/{{ $item->id }}">Xóa</a></button>
+                                                        href="delete/{{ $item->id }}">Xóa</a></button>
                                         </td>
                                     </tr>
                                 </a>
@@ -87,7 +107,7 @@
                     <div class="col-sm-7">
                         <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                {{--<li>{{ $data->links() }}</li>--}}
+                                <li>{{ $post->links() }}</li>
                             </ul>
                         </div>
                     </div>

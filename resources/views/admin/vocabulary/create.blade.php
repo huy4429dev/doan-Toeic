@@ -1,6 +1,10 @@
 @extends('adminlte::page')
 
 @section('title', 'Từ vững')
+@section('content_header')
+    <a href="#" onclick="history.back()">Danh sách chủ đề</a> /
+    <a>Tạo chủ đề</a>
+@stop
 
 @section('content_header')
 @stop

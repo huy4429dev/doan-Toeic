@@ -187,12 +187,12 @@
                                     </li>
                                     <li>
                                         <a href="http://facebook.com/tienganhmoingayonline" target="_blank"><img
-                                                    src="../asset/uploads/image/facebook_icon.png"
+                                                    src="uploads/image/facebook_icon.png"
                                                     alt="Tiếng Anh Mỗi Ngày Facebook Page"></a>
                                     </li>
                                     <li>
                                         <a href="http://youtube.com/tienganhmoingayonline" target="_blank"><img
-                                                    src="../asset/uploads/image/youtube_icon.png"
+                                                    src="uploads/image/youtube_icon.png"
                                                     alt="Tiếng Anh Mỗi Ngày YouTube "></a>
                                     </li>
                                 </ul>

@@ -3,12 +3,17 @@
 @section('title', 'Từ vững')
 
 @section('content_header')
+    <a href="#" onclick="history.back()">Danh sách từ vững</a> /
+    <a>Tạo từ vững</a>
 @stop
+
 
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Tạo chủ đề từ vững</h3>
+            <h3 class="box-title">Tạo từ vững mới chủ đề:
+                <b style="text-transform: capitalize">{{$topic->title}}</b>
+            </h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -27,28 +32,42 @@
                     {{ session('thongbao') }}
                 </div>
             @endif
-            <form role="form" method="POST" action="" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{route('post.vocabulary.create')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <div style="display: none">
                         <label>Loại chủ đề:</label>
-                        <select class="form-control" name="category_id" id="category">
-                            {{--@foreach($data as $category)--}}
-                                {{--@if($category->id === 1)--}}
-                                    {{--<option selected value="{{ $category->id }}">{{$category->name}}</option>--}}
-                                {{--@else--}}
-                                    {{--<option value="{{ $category->id }}">{{$category->name}}</option>--}}
-                                {{--@endif--}}
-                            {{--@endforeach--}}
+                        <select class="form-control" name="topic_id" id="topic">
+                            <option value="{{ $topic->id }}">{{$topic->title}}</option>
                         </select>
                     </div>
                     <div>
-                        <label>Tên chủ đề:</label>
+                        <label>Tên từ vững:</label>
                         <input name="title" type="text" class="form-control" placeholder="Title">
                     </div>
                     <div>
-                        <label>Hình ảnh:</label>
-                        <input class="btn btn-app" type="file" name="thumbnail" multiple>
+                        <label>Loại từ vững:</label>
+                        <select class="form-control" name="word_type">
+                            <option value=""> -------------- </option>
+                            <option value="Động từ">Động từ</option>
+                            <option value="Động từ">Cụm động từ</option>
+                            <option value="Danh từ">Danh từ</option>
+                            <option value="Danh từ">Cụm danh từ</option>
+                            <option value="Tĩnh từ">Tĩnh từ</option>
+                            <option value="Tĩnh từ">Cụm tĩnh từ</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Phát âm:</label>
+                        <input name="pronounce" type="text" class="form-control" placeholder="/abc/">
+                    </div>
+                    <div>
+                        <label>Link âm thanh:</label>
+                        <input name="audio" type="text" class="form-control" placeholder="http://abc.mp3">
+                    </div>
+                    <div class="form-group">
+                        <label>Cách dùng từ vững:</label>
+                        <textarea name="use" type="text" class="form-control ckeditor" rows="10"></textarea>
                     </div>
                 </div>
                 <div class="box-footer">
@@ -57,4 +76,5 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript" language="javascript" src="/ckeditor/ckeditor.js"></script>
 @stop

@@ -17,7 +17,8 @@
                 <div class="box-tools">
                     <div class="input-group input-group-sm hidden-xs"
                          style="width: 200px; float: left; margin-left: 10px;">
-                        <input type="text" name="id" class="form-control pull-right" placeholder="Tìm kiếm">
+                        <input type="text" name="id" value="@if(isset($id)){{$id}}@endif"
+                               class="form-control pull-right" placeholder="Tìm kiếm">
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
@@ -43,26 +44,22 @@
                             {{--title--}}
                             <thead>
                             <tr role="row">
-                                <th tabindex="0">id</th>
-                                <th class="sorting" tabindex="0">Tiêu đề chủ đề</th>
-                                <th class="sorting" tabindex="0">Hình ảnh</th>
-                                <th tabindex="0"></th>
-                                <th tabindex="0"></th>
-                                <th tabindex="0"></th>
+                                <th tabindex="0" class="text-center">id</th>
+                                <th class="sorting text-center" tabindex="0">Tiêu đề chủ đề</th>
+                                <th class="sorting text-center" tabindex="0">Hình ảnh</th>
+                                <th tabindex="0" class="text-center"></th>
+                                <th tabindex="0" class="text-center"></th>
                             </tr>
                             </thead>
                             {{--data--}}
                             <tbody>
                             @foreach($data as $item)
                                 <a href="http://localhost:8000/admin/dashboard">
-                                    <tr role="row" class="odd" onclick="f()" class="redirect" data="{{$item->id}}">
-                                        <td class="sorting_1">{{ $item->id }}</td>
-                                        <td class="sorting_1">{{ $item->title }}</td>
-                                        <td class="sorting_1"><img width="70px;"
-                                                                   src="/uploads/gramar/{{ $item->thumbnail }}"/></td>
-                                        <td style="width: 50px;">
-                                            <button type="button" class="btn btn-block btn-default btn-sm"><a
-                                                        href="post-vocabulary/{{ $item->id }}">Xem</a></button>
+                                    <tr id="{{ $item->id }}" onclick="item({{$item->id}})" role="row" class="odd">
+                                        <td class="sorting_1 text-center">{{ $item->id }}</td>
+                                        <td class="sorting_1 text-center">{{ $item->title }}</td>
+                                        <td class="sorting_1 text-center"><img width="70px;"
+                                                                               src="/uploads/gramar/{{ $item->thumbnail }}"/>
                                         </td>
                                         <td style="width: 50px;">
                                             <button type="button" class="btn btn-block btn-default btn-sm"><a
@@ -73,6 +70,11 @@
                                                         href="vocabulary/delete/{{ $item->id }}">Xóa</a></button>
                                         </td>
                                     </tr>
+                                    <script>
+                                        function item(id) {
+                                            window.location = "post-vocabulary/" + id;
+                                        }
+                                    </script>
                                 </a>
                             @endforeach
                             </tbody>
