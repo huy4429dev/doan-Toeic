@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 
 @section('title', 'AdminLTE')
-
+@section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@stop
 @section('content_header')
 <h1>{{$topic->title}}</h1>
 @stop
@@ -53,4 +55,49 @@
         </div>
     </form>
 </div>
+@stop
+@section('js')
+<script type="text/javascript">
+  $('document').ready(function() {
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $("#btn-submit").click(function(e) {
+      e.preventDefault();
+      var title = $("input[name=title]").val();
+      var thumbnail = $('#file').prop('files')[0];
+      var formData = new FormData();
+      formData.append('title', title);
+      formData.append('thumbnail', thumbnail);
+      $('div.alert-danger').css('display', 'none');
+      $('div.alert-success').css('display', 'none');
+      $('#btn-submit').html('Thêm ...')
+      $.ajax({
+        type: 'POST',
+        url: '/admin/listening/add-topic',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function(data) {
+          $('#btn-submit').html('Thêm');
+
+          if (data.errors) {
+            console.log(data.errors);
+            data.errors.forEach(function(error) {
+              console.log(error);
+            })
+            $('div.alert-danger').css('display', 'block');
+            $('.alert-danger').html(data.errors[0]);
+          } else {
+            $('div.alert-success').css('display', 'block');
+            $('.alert-success').html('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>  <h4><i class="icon fa fa-check"></i> Thông báo</h4>' + data.success);
+          }
+        },
+      });
+    });
+  })
+</script>
 @stop

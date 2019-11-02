@@ -1,6 +1,7 @@
 /**
  * Play sound grammar
  */
+console.log(1);
 let audio = new Audio();
 
 function playSound(src) {

@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 
 @section('title', 'AdminLTE')
-
+@section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@stop
 @section('content_header')
 <h1>Listening</h1>
 @stop

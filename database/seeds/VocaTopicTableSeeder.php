@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class VocaTopicTableSeeder extends Seeder
+class VocaTopicTableSeeder extends Seeder 
 {
     /**
      * Run the database seeds.
