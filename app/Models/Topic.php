@@ -13,6 +13,6 @@ class Topic extends Model
     	return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
     public function posts(){
-    	return $this->hasMany('App\Models\Post', 'topic_id', 'id');
+    	return $this->hasMany('App\Models\Post');
     }
 }

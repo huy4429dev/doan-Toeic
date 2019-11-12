@@ -38,7 +38,7 @@ class PostListeningController extends Controller
                 'audio_ques.required' => 'Bạn chưa chọn audio',
                 'answer.required'     => 'Bạn chưa chọn đáp án',
                 'title.unique'        => 'Tiêu đề đã tồn tại',
-                'level.required'       => 'Bạn chưa chọn cấp độ',
+                'level.required'      => 'Bạn chưa chọn cấp độ',
             ]
         );
         $post = new Post();

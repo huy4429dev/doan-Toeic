@@ -19,7 +19,7 @@
                     <div class="nav">
                         <div>
                             <div class="logo">
-                                <h3><a href="#">ENGLISH SITE</a></h3>
+                                <h3><a href="{{route('home')}}">ENGLISH SITE</a></h3>
                             </div>
                             <ul class="page-member">
                                 <li><a href="about">About</a></li>
@@ -112,7 +112,7 @@
                                         <div class="col-md-6">
                                             <div class="one-cate">
                                                 <div class="cate-ava">
-                                                    <img src="./uploads/image/ngu_phap_toeic.png" alt="ngu phap">
+                                                    <img src="./uploads/image/luyen_nghe_toeic.png" alt="ngu phap">
                                                 </div>
                                                 <div class="title">
                                                     <h3>
@@ -123,7 +123,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="go-learn">
-                                                    <a href="nguphap">CẢI THIỆN KĨ NĂNG NGHE</a>
+                                                    <a href="{{route('listening',[99])}}">CẢI THIỆN KĨ NĂNG NGHE</a>
                                                 </div>
                                             </div>
 
@@ -151,7 +151,7 @@
                                     <div class="row">
                                         <div class="one-cate" style="margin:auto">
                                             <div class="cate-ava">
-                                                <img src="./uploads/image/luyen_nghe_toeic.png" alt="ngu phap">
+                                                <img src="./uploads/image/ngu_phap_toeic.png" alt="ngu phap">
                                             </div>
                                             <div class="title">
                                                 <h3>

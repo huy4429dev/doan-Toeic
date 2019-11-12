@@ -36,6 +36,7 @@
           <th>Title</th>
           <th>Time</th>
           <th>Description</th>
+          <th>Level</th>
           <th colspan="2" style="text-align: center;">Action</th>
         </tr>
         @foreach($posts as $post)
@@ -44,6 +45,7 @@
           <td>{{$post->title}}</td>
           <td>{{$post->created_at}}</td>
           <td>{{$post->description}}</td>
+          <td>{{$post->level}}</td>
           <td style="width: 50px;">
             <a class="btn btn-primary" href="{{ url('admin/listening/topic/update-post/'.$post->id ) }}">Sửa</a>
           </td>

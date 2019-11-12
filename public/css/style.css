@@ -3,8 +3,8 @@
     border: none;
     margin: 0;
     list-style: none;
-    font-family: roboto-regular, serif;
 }
+
 
 /* slider */
 
@@ -12,6 +12,7 @@
     width: 100%;
     height: 100%;
 }
+
 
 /* header */
 
@@ -202,6 +203,8 @@ p.excerpt {
 
 div.container:first-child h2 {
     padding: 20px 0 11px;
+    font-size: 25px;
+    color: #777777;
     text-align: center;
 }
 
@@ -262,7 +265,7 @@ img.user-level {
     flex-wrap: wrap;
 }
 
-.user-deltail-socre > div:nth-child(even) {
+.user-deltail-socre>div:nth-child(even) {
     margin-right: 0;
 }
 
@@ -391,7 +394,8 @@ li.one-user {
 }
 
 ul.chart-week li:nth-child(1) .rank-number {
-    background: #ff6045;;
+    background: #ff6045;
+    ;
 }
 
 ul.chart-week li:nth-child(2) .rank-number {
@@ -427,7 +431,7 @@ ul.chart-week li:nth-child(3) .rank-number {
     /* padding-left: 32px; */
 }
 
-.learn-today.box > h3 {
+.learn-today.box>h3 {
     font-size: 25px;
     color: #333333;
 }
@@ -443,6 +447,7 @@ div.blog-learn {
     display: flex;
     margin-bottom: 20px;
 }
+
 
 /* blog */
 
@@ -493,6 +498,7 @@ h4.title-post {
     left: -23px;
 }
 
+
 /* social */
 
 h2.learing-title {
@@ -508,6 +514,7 @@ h2.learing-title {
 .social {
     padding-bottom: 1px;
 }
+
 
 /* footer */
 
@@ -569,32 +576,19 @@ ul.user-info {
 }
 
 .head-learning img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 95px;
 }
 
-.head-learning h3 {
-    font-size: 22px;
-    color: #777777;
-    font-weight: 500;
+.head-learning h2 {
+    font-size: 25px;
+    color: black !important;
 }
 
 .head-learning {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 45px;
 }
 
-ul .head-learning{
-    display: inline-block;
-    margin: 0 30px;
-}
-ul .head-learning a{
-    text-decoration: none;
-}
-ul .head-learning a .img-radius{
-    border-radius: 10px;
-}
 .thumbnail-bot {
     display: flex;
     justify-content: center;
@@ -654,7 +648,7 @@ ul.learned-word-wrapper {
     display: flex;
 }
 
-.have-learned ul > li {
+.have-learned ul>li {
     width: 59%;
     padding: 10px 0;
     font-size: 21px;
@@ -716,7 +710,7 @@ ul.learned-word-wrapper img {
     margin-top: 20px;
 }
 
-.topic-want > div {
+.topic-want>div {
     width: 17%;
 }
 
@@ -738,7 +732,7 @@ ul.learned-word-wrapper img {
     font-size: 26px;
 }
 
-.all-topics > div {
+.all-topics>div {
     width: 20%;
     margin: 20px 0;
 }
@@ -923,6 +917,67 @@ ul#meaning-example-wrapper img {
     flex-wrap: wrap;
 }
 
-.milestone-grammar-wrapper.clearfix > h3 {
+.milestone-grammar-wrapper.clearfix>h3 {
     width: 100%;
+}
+
+.texts-wrapper {
+    font-size: 29px;
+    line-height: 73px;
+    margin-left: 30px;
+}
+
+button.submit-btn.oval-btn {
+    display: block;
+    margin-top: 1.071rem;
+    padding: 1.071rem;
+    text-align: center;
+    border: none;
+    color: #fff;
+    background-color: #33abe5;
+    font-family: roboto-regular;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.recommended-articles.d-flex li {
+    padding: 0 13px;
+    height: 30px;
+    line-height: 21px;
+}
+
+.recommended-articles.d-flex h4 {
+    /* margin-left: 59px; */
+    font-size: 18px;
+}
+
+input.hidden-text.error-text {
+    border-bottom: 1px solid black;
+    height: 27px;
+    width: 80px;
+}
+
+.btn-play {
+    cursor: pointer;
+}
+
+.btn-next-question {
+    margin-left: 20px;
+    padding: 5px 11px;
+    background: #33abe5;
+    color: white;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+input.hidden-text.error-text {
+    text-align: center;
+    outline: none;
+}
+
+.btn-play img {
+    width: 50px;
+    margin-top: 16px;
 }

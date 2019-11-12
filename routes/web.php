@@ -110,3 +110,9 @@ Route::prefix('tu-vung')->group(function (){
     Route::get('/{id}','Vocabulary\VocabularyController@detail');
     Route::get('item/{id}','Vocabulary\VocabularyController@item');
 });
+
+//Lấy danh sách chủ đề nghe
+Route::prefix('nghe')->group(function (){
+    Route::get('/{id}','Listening\PageListeningController@topicDetail')->name('listening');
+    Route::get('/get-answer/{id}','Listening\PageListeningController@getAnswer')->name('listening.get.answer');
+});
