@@ -63,7 +63,7 @@
             <div class="img-thumbnail">
             <img src="/uploads/gramar/{{$detailgramars->thumbnail}}">
             </div>
-            <div class="table-of-contents">
+            <!-- <div class="table-of-contents">
                 <p><br>
                     <span style="font-size:20px;"><strong>Mục lục:</strong></span></p>
                 <ol>
@@ -75,7 +75,7 @@
                     <li><a href="#phan-loai">Phân loại động từ trong tiếng Anh</a></li>
                     <li><a href="#tong-ket">Tổng kết</a></li>
                 </ol>
-            </div>
+            </div> -->
             <div>
             {!! $detailgramars->content !!}
             </div>

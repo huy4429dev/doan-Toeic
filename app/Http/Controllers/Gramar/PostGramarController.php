@@ -70,12 +70,12 @@ class PostGramarController extends Controller
         $request->validate(
             [
                 'title' => 'required',
-                'thumbnail' => 'required'
+             
                 
             ],
             [
                 'title.required' => 'Bạn chưa nhập tiêu đề',
-                'thumbnail.required' => 'Bạn chưa chọn hình ảnh',
+                
 
                 
 
