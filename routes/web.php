@@ -62,7 +62,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/topic/add-post/{id}', 'listening\PostListeningController@create');
         Route::post('/topic/add-post/{id}', 'listening\PostListeningController@store');
         Route::get('/topic/delete-post/{id}', 'listening\PostListeningController@delete');
-        Route::get('/topic/update-post/{id}', 'listening\PostListeningController@update');
+        Route::get('/topic/update-post/{id}', 'listening\PostListeningController@edit');
+        Route::post('/topic/update-post/{id}', 'listening\PostListeningController@update');
     });
     Route::prefix('gramar')->group(function () {
         /**

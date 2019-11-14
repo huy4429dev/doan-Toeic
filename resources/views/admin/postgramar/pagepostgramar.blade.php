@@ -60,7 +60,7 @@
             <h1 class="title-post">
                 {{ $detailgramars->title }}
             </h1>
-            <div class="img-thumbnail">
+            <div class="img-thumbnail" style="text-align:center;border: none">
             <img src="/uploads/gramar/{{$detailgramars->thumbnail}}">
             </div>
             <!-- <div class="table-of-contents">
@@ -76,7 +76,7 @@
                     <li><a href="#tong-ket">Tổng kết</a></li>
                 </ol>
             </div> -->
-            <div>
+            <div class="post-content">
             {!! $detailgramars->content !!}
             </div>
         </div>

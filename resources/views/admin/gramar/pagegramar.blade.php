@@ -63,7 +63,7 @@
                         <span class="bold">{{count($all)}} Chủ Đề</span>
                     </h2>
                     <div class="milestone-grammar-wrapper clearfix">
-                        <h3>Cấp độ 1 ⭐</h3>
+                        <h3>Cấp độ 1 <span>⭐</span></h3>
                         @foreach($gramarsLevel1 as $gr1)
                         <div class="block-milestone milestone-grammar">
 
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="milestone-grammar-wrapper clearfix">
-                        <h3>Cấp độ 2 ⭐⭐</h3>
+                        <h3>Cấp độ 2 <span>⭐⭐</span></h3>
                         @foreach($gramarsLevel2 as $gr2)
                         <div class="block-milestone milestone-grammar">
                             <div class="inner">
@@ -93,7 +93,7 @@
                         @endforeach
                     </div>
                     <div class="milestone-grammar-wrapper clearfix">
-                        <h3>Cấp độ 3 ⭐⭐⭐</h3>
+                        <h3>Cấp độ 3 <span>⭐⭐⭐</span></h3>
                         @foreach($gramarsLevel3 as $gr3)
                         <div class="block-milestone milestone-grammar">
                             <div class="inner">
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="milestone-grammar-wrapper clearfix">
-                        <h3>Cấp độ 4 ⭐⭐⭐⭐</h3>
+                        <h3>Cấp độ 4 <span>⭐⭐⭐⭐</span></h3>
                         @foreach($gramarsLevel4 as $gr4)
                         <div class="block-milestone milestone-grammar">
                             <div class="inner">
@@ -122,7 +122,7 @@
                         @endforeach
                     </div>
                     <div class="milestone-grammar-wrapper clearfix">
-                        <h3>Cấp độ 5 ⭐⭐⭐⭐⭐</h3>
+                        <h3>Cấp độ 5 <span>⭐⭐⭐⭐⭐</span></h3>
                         @foreach($gramarsLevel5 as $gr5)
                         <div class="block-milestone milestone-grammar">
                             <div class="inner">

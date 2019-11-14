@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
-class GramarsTableSeeder extends Seeder
+
+class GramarTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

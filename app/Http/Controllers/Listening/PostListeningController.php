@@ -10,7 +10,8 @@ use Illuminate\Support\Str;
 class PostListeningController extends Controller
 {
     public function index($id){
-        $posts = Post::where('topic_id', '=', $id)->orderBy('id', 'DESC')->paginate(6);
+        $posts = Post::where('topic_id', '=', $id 
+        )->orderBy('id', 'DESC')->paginate(6);
         return view('admin.listening.danh_sach_bai_viet',[
             'idTopic' => $id,
             'posts'   => $posts,
@@ -69,5 +70,31 @@ class PostListeningController extends Controller
         return view('admin.listening.cap_nhat_bai_viet',[
             'post' => $post
         ]);
+    }
+    public function update(Request $request,$id){
+        $request->validate(
+            [
+                'title'      => 'required',
+                'answer'     => 'required',
+                'level'      => 'required',
+            ],
+            [
+                'title.required'      => 'Bạn chưa nhập tiêu đề',
+                'answer.required'     => 'Bạn chưa chọn đáp án',
+                'level.required'      => 'Bạn chưa chọn cấp độ',
+            ]
+        );
+        $post = Post::find($id);
+        $post->fill($request->all());
+        $post->description = $request->description;
+        if ($request->hasFile('audio_ques')) {
+            $file  = $request->file('audio_ques');
+            $name  = $file->getClientOriginalName();
+            $audio = Str::random(4) . '----' . $name;
+            $file->move('uploads/listening', $audio);
+            $post->audio_ques = $audio;
+        } 
+        $post->save();
+        return redirect('admin/listening/topic/'.$post->topic_id)->with('thongbao', 'Cập nhật thành công');
     }
 }

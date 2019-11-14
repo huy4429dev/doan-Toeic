@@ -56,6 +56,9 @@
             <div class="main-head">
                 <h2>Luyện nghe TOEIC: hiệu quả và vui như chơi game!</h2>
             </div>
+            @if($posts->isEmpty())
+            <h2>Chủ đề bạn chọn chưa có bài viết nào </h2>
+            @endif
             @foreach($posts as $post)
             <div class="container text-center one-question" data-question="{{$post->level}}" style="display:none">
                 <h2 class="blue-color level-title py-5 text-info">Level {{$post->level}} ({{$topicName}}) - {{$post->title}}</h2>
@@ -63,7 +66,7 @@
                 <h4 class="success-msg text-success"></h4>
                 <div class="text-block d-flex justify-content-center">
                     <div class="btn-play">
-                        <a><img src="../uploads/image/audio_icon_blue.png" width="80" onclick="playSound('http://www.oxfordlearnersdictionaries.com/media/english/us_pron/b/bud/budge/budget__us_1.mp3')"></a>
+                        <a><img src="../uploads/image/audio_icon_blue.png" width="80" onclick="playSound('{{$post->audio_ques}}')"></a>
                     </div>
                     <div class="texts-wrapper listening-answer" id="answer-{{$post->id}}">{{$post->answer}}</div>
                 </div>
@@ -77,7 +80,7 @@
                             <h4>Cách chủ đề luyện nghe khác:</h4>
                         </li>
                         @foreach($topics as $topic)
-                        <li><a href="https://tienganhmoingay.com/luyen-nghe-toeic/luyen-nghe-toeic-part-1/">
+                        <li><a href="{{$topic->id}}">
                                 {{$topic->title}}</a>
                         </li>
                         @endforeach
@@ -173,7 +176,7 @@
         $('.get-answer').on('click', function(event) {
             let answerId = '#' + event.target.value;
             let answer = $(answerId).text().trim().split(" ");
-            let answerInput = $(answerId + ' > input').val().trim();
+            let answerInput = $(answerId + ' > input').val().trim().toLowerCase();
             answerId = answerId.slice(1);
             answer.splice(positionSpace[answerId], 1, answerInput);
             let postId = answerId.slice(7);

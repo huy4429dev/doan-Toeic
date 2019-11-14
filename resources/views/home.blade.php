@@ -123,7 +123,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="go-learn">
-                                                    <a href="{{route('listening',[99])}}">CẢI THIỆN KĨ NĂNG NGHE</a>
+                                                    <a href="{{route('listening',[1])}}">CẢI THIỆN KĨ NĂNG NGHE</a>
                                                 </div>
                                             </div>
 

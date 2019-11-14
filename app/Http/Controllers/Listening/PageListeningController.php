@@ -13,7 +13,7 @@ class PageListeningController extends Controller
     {
         $topics    = Topic::where('category_id','3')->get();
         $topicName = Topic::find($id)->title;
-        $posts     = Topic::find($id)->posts;
+        $posts     = Topic::find($id)->posts;   
         return view('listening.chi_tiet_chu_de', [
             'topics'    => $topics,
             'topicName' => $topicName,

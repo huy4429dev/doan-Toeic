@@ -37,8 +37,8 @@ function nextQuestion(level) {
 
     let allQuestion = document.querySelectorAll('.one-question');
     if (level === allQuestion.length) {
-        allQuestion[level - 1].style.display = 'none';
-        window.alert('hoan thanh topic');
+        allQuestion[level - 1].innerHTML = '<h2 style="margin-top:20px">Chúc mừng bạn đã vượt qua chủ đề này : <br/> Lựa chọn 1 chủ đề mới và chinh phục nó nào !</h2>';
+        window.alert('Topic complete ');
         return false;
     }
     allQuestion[level - 1].style.display = 'none';
