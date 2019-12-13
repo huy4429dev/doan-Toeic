@@ -7,7 +7,7 @@
 @stop
 @section('content')
 
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header with-border" style="margin-bottom: 20px">
             <h3 class="box-title">Danh sách từ vựng chủ đề:
                 <b style="text-transform: capitalize">{{$topic->title}}</b>
@@ -85,11 +85,11 @@
                                         </td>
                                         <td class="sorting_1">{{$item->use }}</td>
                                         <td style="width: 50px;">
-                                            <button type="button" class="btn btn-block btn-default btn-sm"><a
+                                            <button type="button" class="btn btn-block btn-warning btn-sm"><a
                                                         href="update/{{ $item->id }}">Sửa</a></button>
                                         </td>
                                         <td style="width: 50px;">
-                                            <button type="button" class="btn btn-block btn-default btn-sm"><a
+                                            <button type="button" class="btn btn-block btn-danger btn-sm"><a
                                                         href="delete/{{ $item->id }}">Xóa</a></button>
                                         </td>
                                     </tr>

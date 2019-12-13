@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="box">
+<div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title">Danh mục tìm kiếm</h3>
     <h4>Tìm kiếm thấy : {{count($postgramar)}} bài viết </h4>

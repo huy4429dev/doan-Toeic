@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Danh sách bài viết ngữ pháp</h3>
         </div>

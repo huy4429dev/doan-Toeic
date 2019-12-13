@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header with-border" style="margin-bottom: 20px">
             <h3 class="box-title">Danh sách chủ đề từ vựng</h3>
         </div>
@@ -45,8 +45,8 @@
                             <thead>
                             <tr role="row">
                                 <th tabindex="0" class="text-center">id</th>
-                                <th class="sorting text-center" tabindex="0">Tiêu đề chủ đề</th>
-                                <th class="sorting text-center" tabindex="0">Hình ảnh</th>
+                                <th class=" text-center" tabindex="0">Tiêu đề chủ đề</th>
+                                <th class="text-center" tabindex="0">Hình ảnh</th>
                                 <th tabindex="0" class="text-center"></th>
                                 <th tabindex="0" class="text-center"></th>
                             </tr>
@@ -57,16 +57,16 @@
                                 <a href="http://localhost:8000/admin/dashboard">
                                     <tr id="{{ $item->id }}" onclick="item({{$item->id}})" role="row" class="odd">
                                         <td class="sorting_1 text-center">{{ $item->id }}</td>
-                                        <td class="sorting_1 text-center">{{ $item->title }}</td>
-                                        <td class="sorting_1 text-center"><img width="70px;"
+                                        <td class="sorting_1 text-center text-primary" style="cursor:pointer">{{ $item->title }}</td>
+                                        <td class="sorting_1 text-center"><img width="50px;"
                                                                                src="/uploads/vocabulary/{{ $item->thumbnail }}"/>
                                         </td>
                                         <td style="width: 50px;">
-                                            <button type="button" class="btn btn-block btn-default btn-sm"><a
+                                            <button type="button" class="btn btn-block btn-warning btn-sm"><a style="color:white"
                                                         href="vocabulary/update/{{ $item->id }}">Sửa</a></button>
                                         </td>
                                         <td style="width: 50px;">
-                                            <button type="button" class="btn btn-block btn-default btn-sm"><a
+                                            <button type="button" class="btn btn-block btn-danger btn-sm"><a style="color:white"
                                                         href="vocabulary/delete/{{ $item->id }}">Xóa</a></button>
                                         </td>
                                     </tr>

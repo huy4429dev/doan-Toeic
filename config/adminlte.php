@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'English Pro',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>English</b>PRO',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>E</b>PR',
 
     /*
     |--------------------------------------------------------------------------
@@ -127,71 +127,95 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-        ],
-        ['header' => 'main_navigation'],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'admin/profile',
+            'icon' => 'far fa-smile',
         ],
+        ['header' => 'MANAGEMENT'],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'Quản lý nghe',
-            'icon'    => 'fas fa-folder',
+            'text'    => 'Quản Lý Nghe',
+            'icon'    => 'fas fa-headphones-alt',
             'submenu' => [
                 [
                     'text' => 'Danh sách chủ đề',
-                    'url'  => 'admin/listening'
+                    'url'  => 'admin/listening',
+                    'icon'    => 'fas fa-tag',
                 ],
     
                 [
                     'text' => 'Thêm mới chủ đề',
-                    'url'  => 'admin/listening/add-topic'
+                    'url'  => 'admin/listening/add-topic',
+                    'icon'    => 'fas fa-tag',
                 ],
                 
             ], 
         ],
         [
-            'text'    => 'Quản lý từ vựng',
-            'icon'    => 'fas fa-folder',
+            'text'    => 'Quản Lý Từ Vựng',
+            'icon'    => 'far fa-edit',
             'submenu' => [
                 [
                     'text' => 'Danh sách chủ đề',
-                    'url'  => 'admin/vocabulary'
+                    'url'  => 'admin/vocabulary',
+                    'icon'    => 'fas fa-tag',
                 ]
             ],
         ],
         [
-            'text'    => 'Quản lý ngữ pháp',
-            'icon'    => 'fas fa-folder',
+            'text'    => 'Quản Lý Ngữ Pháp',
+            'icon'    => 'fas fa-book',
             'submenu' => [
                 [
-                    'text' => 'Danh sách chủ đề ngữ pháp',
-                    'url'  => 'admin/gramar/show'
+                    'text' => 'Danh sách chủ đề',
+                    'url'  => 'admin/gramar/show',
+                    'icon'    => 'fas fa-tag',
                 ],
                 [
-                    'text' => 'Danh sách bài viết ngữ pháp',
+                    'text' => 'Danh sách bài viết',
+                    'icon'    => 'fas fa-tag',
                     'url'  => 'admin/postgramar/show'
                 ],
+    
+            ],
+        ],
+        [
+            'text'    => 'Quản Lý Toeic',
+            'icon'    => 'fas fa-tasks',
+            'submenu' => [
+                [
+                    'text' => 'Danh sách đề thi',
+                    'icon'    => 'fas fa-tag',
+                    'url'  => 'admin/toeic-exam/show'
+                ]
+    
+            ],
+        ],
+        // [
+        //     'text'    => 'Quản lý tài khoản',
+        //     'icon'    => 'fas fa-folder',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Danh sách tài khoản',
+        //             'url'  => 'admin/user/show'
+        //         ]
+    
+        //     ],
+        // ],
+        [
+            'text'    => 'Quản Lý Tin Tức',
+            'icon'    => 'far fa-newspaper',
+            'submenu' => [
+                [
+                    'text' => 'Danh sách bài viết',
+                    'icon'    => 'fas fa-tag',
+                    'url'  => 'admin/post-article/show'
+                ]
     
             ],
         ],

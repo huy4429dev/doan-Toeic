@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<div class="box">
+<div class="box box-primary">
   <div class="box-header">
     <a style="background:#c6c6c642" href="{{url('admin/listening/topic/add-post/'.$idTopic)}}" class="btn btn-secondary btn-sm">Add Post +</a>
     @if (session('thongbao'))
@@ -32,7 +32,7 @@
     <table class="table table-hover">
       <tbody>
         <tr>
-          <th>ID</th>
+          <th class="text-center">ID</th>
           <th>Title</th>
           <th>Time</th>
           <th>Description</th>
@@ -41,16 +41,16 @@
         </tr>
         @foreach($posts as $post)
         <tr>
-          <td>{{$post->id}}</td>
+          <td class="text-center">{{$post->id}}</td>
           <td>{{$post->title}}</td>
           <td>{{$post->created_at}}</td>
           <td>{{$post->description}}</td>
           <td>{{$post->level}}</td>
           <td style="width: 50px;">
-            <a class="btn btn-primary" href="{{ url('admin/listening/topic/update-post/'.$post->id ) }}">Sửa</a>
+            <a class="btn btn-warning btn-sm" href="{{ url('admin/listening/topic/update-post/'.$post->id ) }}">Sửa</a>
           </td>
           <td style="width: 50px;">
-            <a class="btn btn-danger" href="{{ url('admin/listening/topic/delete-post/'.$post->id ) }}">Xóa</a>
+            <a class="btn btn-danger btn-sm" href="{{ url('admin/listening/topic/delete-post/'.$post->id ) }}">Xóa</a>
           </td>
         </tr>
         @endforeach

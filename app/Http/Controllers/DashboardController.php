@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,8 +22,21 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard');
+        $contacts = Contact::orderBy('id','desc')->paginate(15);
+        /**
+         * Số thứ tự 
+         */
+        $id = $request->page ?? 1;
+        $id = ($id - 1) * 15 + 1;
+        return view(
+            'dashboard',
+            [
+                'contacts' => $contacts,
+                'id'       => $id
+
+            ]
+        );
     }
 }

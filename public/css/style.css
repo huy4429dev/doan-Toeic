@@ -32,6 +32,7 @@ header {
     width: 100%;
     height: 94px;
     background: #33ABE5;
+    box-shadow: 3px -3px 8px 6px #948e8eab;
 }
 
 .nav {
@@ -87,7 +88,7 @@ header {
 }
 
 .box-full {
-    padding: 100px;
+    padding: 50px;
     /* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3); */
     /* border-radius: 5px; */
     border: 1px solid #8080806b;
@@ -202,9 +203,9 @@ p.excerpt {
 }
 
 div.container:first-child h2 {
-    /* padding: 43px 0 20px; */
+    /* padding: 30px 0 20px; */
     font-size: 30px;
-    /* color: #777777; */
+    color: #777777;
     text-align: center;
     line-height: 60px;
 }
@@ -360,7 +361,7 @@ ul.chart-week {
 }
 
 .user-info-rank {
-    margin-top: 50px;
+    margin-top: 46px;
 }
 
 img.avartar {
@@ -371,6 +372,8 @@ img.avartar {
 
 img.medal {
     width: 17px;
+    position: absolute;
+    right: 74px;
 }
 
 li.one-user {
@@ -391,7 +394,9 @@ li.one-user {
 .chart-score {
     font-weight: 500;
     font-size: 17px;
-    margin: 38px;
+    /* margin: 38px; */
+    position: absolute;
+    right: 40px;
 }
 
 ul.chart-week li:nth-child(1) .rank-number {
@@ -426,10 +431,6 @@ ul.chart-week li:nth-child(3) .rank-number {
 .go-learn a {
     width: 210px;
     display: inline-block;
-}
-
-.cate-ava {
-    /* padding-left: 32px; */
 }
 
 .learn-today.box>h3 {
@@ -529,20 +530,17 @@ footer .link-title {
     color: #33abe5;
     font-weight: bold;
     font-size: 18px;
-    font-family: roboto-bold;
 }
 
 footer .links li a {
     font-size: 14px;
     text-decoration: none;
-    font-family: roboto-light;
     color: #dfdfdf;
 }
 
 footer .intro-text {
     font-size: 14px;
     color: #87c52e;
-    font-family: roboto-medium;
 }
 
 footer .share-block li {
@@ -555,13 +553,14 @@ img.avartar {
 }
 
 ul.user-info {
-    /* display: none; */
     position: absolute;
     background: white;
     top: 50px;
     width: 158px;
     box-shadow: 1px 1px 1px gray;
     padding: 12px;
+    display: none;
+    z-index: 99999;
 }
 
 .user-login span:after {
@@ -573,7 +572,8 @@ ul.user-info {
     border-top: 9px solid #fff;
     position: absolute;
     top: 16px;
-    right: -31px;
+    right: -24px;
+    cursor: pointer;
 }
 
 .head-learning img {
@@ -868,11 +868,6 @@ ul#meaning-example-wrapper img {
     font-size: 16px;
 }
 
-.block-milestone.milestone-grammar {
-    /* width: 100px; */
-    /* height: 185px; */
-}
-
 .inner img {
     width: 56px;
     margin-bottom: 10px;
@@ -939,7 +934,6 @@ button.submit-btn.oval-btn {
     border: none;
     color: #fff;
     background-color: #33abe5;
-    font-family: roboto-regular;
     font-size: 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -952,7 +946,6 @@ button.submit-btn.oval-btn {
 }
 
 .recommended-articles.d-flex h4 {
-    /* margin-left: 59px; */
     font-size: 18px;
 }
 
@@ -1083,4 +1076,302 @@ ul.text-center {
 
 div#content-test h2 {
     padding-top: 27px;
+}
+
+
+/*1111*/
+
+.status-label {
+    top: 42px;
+    right: 18px;
+    width: 42px;
+    height: 35px;
+    display: block;
+    background-color: #ed1e24;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 8px 0;
+    position: absolute;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.toeic-item.toeic-item-1 {
+    position: relative;
+    overflow: visible;
+    padding: 0;
+    margin-bottom: 29px;
+}
+
+.image img {
+    width: 50px;
+}
+
+.toeic-item.toeic-item-1 a.link-wrap {
+    display: flex;
+    background: white;
+    height: 65px;
+    width: 234px;
+}
+
+h3.item-title {
+    font-size: 16px;
+    color: black;
+    margin-top: 13px;
+    margin-left: 37px;
+}
+
+.image img {
+    width: 42px;
+    position: absolute;
+    top: 9px;
+    left: 11px;
+}
+
+.image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 1px;
+    left: -24px;
+}
+
+nav.article-nav ul li:not(:first-child):before {
+    content: "»";
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.test-name {
+    font-size: 42px;
+    color: #09c;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+nav.article-nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav.article-nav-contact ul {
+    display: flex;
+    justify-content: center;
+}
+
+.orange-color {
+    color: #fa5b0f;
+    font-size: 21px;
+}
+
+.form-contact {
+    width: 700px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+ul.text-center.contact-feature li {
+    background: #FF9800;
+    margin-left: 24px;
+    width: 158px;
+    height: 50px;
+    line-height: 47px;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px 0px #a7a2a28c;
+    cursor: pointer;
+}
+
+li.contact-question {
+    background: #8BC34A !important;
+}
+
+li.list-contact {
+    background: #03A9F4 !important;
+}
+
+.about-avatar img {
+    width: 170px;
+    border-radius: 50%;
+    height: 170px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.about-avatar {
+    width: 176px;
+    height: 176px;
+    margin: auto;
+    border-radius: 50%;
+    background: white;
+    position: relative;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.85);
+}
+
+ul.text-center.list-inline {
+    display: flex;
+    justify-content: center;
+}
+
+ul.text-center.list-inline li {
+    padding-left: 31px;
+    font-size: 22px;
+    padding-top: 19px;
+}
+
+ul.text-center.list-inline li a {
+    color: gray;
+}
+
+.user-login a {
+    color: white;
+    line-height: 32px;
+}
+
+.modal-content {
+    width: 63%;
+    margin: auto;
+    height: 400px;
+    border-radius: 18px;
+    box-shadow: 1px 0px 2px 0px #80808045;
+}
+
+.form-login input {
+    border-bottom: 1px solid #80808033;
+    width: 254px;
+    height: 49px;
+    font-size: 19px;
+}
+
+#form-login-img {
+    width: 183px;
+    position: absolute;
+    right: 84px;
+    top: 46px;
+}
+
+div#myModal {
+    display: none;
+}
+
+div#myModal {
+    position: fixed;
+    top: 141px;
+}
+
+ul.user-info li a {
+    color: black;
+    margin-left: 5px;
+}
+
+span.label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 1.5rem;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.full-toeic-test {
+    font-size: 18px;
+}
+
+.answer {
+    margin: 15px 23px;
+}
+
+.one-anwer input,
+label {
+    cursor: pointer;
+}
+
+.my-contact table,
+td,
+th,
+tr,
+thead {
+    border: 1px solid #dedede !important;
+    font-size: 14px;
+}
+
+.my-contact {
+    padding-bottom: 50px;
+}
+
+ul.score-report {
+    list-style: none;
+    border: 1px solid;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fdfcfc;
+    border: 2px solid #9298b6;
+}
+
+li.personal-info {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+ul.score-report li {
+    width: 33%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 40px;
+}
+
+li.personal-info {
+    width: 40%;
+    margin: 60px 0;
+    text-align: center;
+}
+
+li.personal-info .name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+li.component-scores {
+    border-left: 1.2px solid #333;
+    border-right: 1.2px solid #333;
+    width: 35%;
+}
+
+li.total-score {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.score-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: #45407a;
+    padding: 5px 10px;
+    max-width: 130px;
+    margin: 0 auto;
+}
+
+.score-value {
+    width: 98px;
+    height: 45px;
+    margin: 20px auto;
+    padding: 10px 5px;
+    font-size: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #666;
+    text-align: center;
+    line-height: 20px;
 }

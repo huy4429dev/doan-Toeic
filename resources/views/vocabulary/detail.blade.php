@@ -2,54 +2,82 @@
 <html lang="en">
 
 <head>
-    <base href="{{asset('')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Từ vững</title>
-    <link rel="stylesheet" href="./bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./font-anwesome/css/all.css">
-
+    <title>Từ vựng</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../font-anwesome/css/all.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="nav">
-                    <div>
-                        <div class="logo">
-                            <h3><a href="#">ENGLISH SITE</a></h3>
-                        </div>
-                        <ul class="page-member">
-                            <li><a href="about">About</a></li>
-                            <li><a href="about">Contact</a></li>
-                            <li><a href="about">Blog</a></li>
-                        </ul>
-                        <div class="phone">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>093451323</span>
-                        </div>
 
-                    </div>
-                    <div>
-                        <div class="user-login">
-                            <!-- <a href="login">Login</a>
-                                    <i class="fas fa-power-off"></i> -->
-                            <i class="fas fa-user-circle"></i>
-                            <span>User name</span>
-                            <ul class="user-info">
-                                <li><a href="">Tài khoản</a></li>
-                                <li><a href="">Đăng xuất</a></li>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav">
+                        <div>
+                            <div class="logo">
+                                <h3><a href="{{route('home')}}">ENGLISH PRO</a></h3>
+                            </div>
+                            <ul class="page-member">
+                                <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                                <li><a href="{{route('contact')}}">Đặt câu hỏi</a></li>
+                                <li><a href="{{route('blog')}}">Tin tức</a></li>
                             </ul>
-                        </div>
-                    </div>
 
+                        </div>
+                        <div>
+                            <div class="user-login">
+                                @if(!Session::has('user'))
+                                <a href="#" id="myBtn">ĐĂNG NHẬP </a>
+                                @else
+
+                                <img src="../uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}" style="width: 42px;height: 42px;border-radius: 50%;position: relative;left: -5px;top: -3px;" ; alt="">
+                                <span>{{Session::get('user')->name}}</span>
+                                <ul class="user-info">
+                                    <li><a href="{{route('student-profile')}}">Tài khoản</a></li>
+                                    <li><a href="{{route('student-logout')}}">Đăng xuất</a></li>
+                                </ul>
+                                @endif
+                            </div>
+                            <div id="myModal" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <div class="form-login">
+                                        <form action="{{route('student-login')}}" method="post">
+                                            @csrf
+                                            <p class="login-error" style="display:none; color:red;padding:0;margin:0;    margin-left: 52px;">
+                                                Sai tên đăng nhập hoặc mật khẩu
+
+                                            </p>
+                                            <div class="form-group">
+                                                <input type="email" name="email" placeholder="Email" value="member@gmail.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" placeholder="Mật khấu" value="123456">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" id="btn-submit" name="login" value="Đăng Nhập">
+                                            </div>
+                                            <a href="dang-ky-user">Đăng ký tài khoản </a>
+                                        </form>
+                                    </div>
+                                    <img id="form-login-img" src="../uploads/image/login-user.png" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 <main>
     <div class="main-content">
         <div class="container bgr-white">
@@ -215,7 +243,55 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="../asset/js/script.js "></script>
+<script>
+        let displayProfile = false;
+        document.querySelector('.user-login span').addEventListener('click', function() {
+            if (displayProfile == true) {
+                document.querySelector('.user-info').style.display = 'none';
+                displayProfile = false;
+            } else {
+                document.querySelector('.user-info').style.display = 'block';
+                displayProfile = true;
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $("#btn-submit").click(function(e) {
+
+            e.preventDefault();
+
+            var password = $("input[name=password]").val();
+            var email = $("input[name=email]").val();
+
+            $.ajax({
+                type: 'POST',
+                url: "user/login",
+                data: {
+                    password: password,
+                    email: email
+                },
+                success: function(data) {
+                    if (data.success == 1) {
+                        window.location.href = "{{route('home')}}"
+                        $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
+                        $('#myModal').css('display', 'none');
+                        $(document).on('click', '.user-login span', function() {
+                            $('.user-info').toggle();
+                        });
+                    } else {
+                        $('.login-error').css('display', 'block');
+                    }
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

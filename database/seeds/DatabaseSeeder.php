@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentsTableSeeder::class);
         $this->call(VocaTopicTableSeeder::class);
         $this->call(GramarTableSeeder::class);
- 
+        $this->call(toeic_exam::class);
+        $this->call(toeic_question::class);
+        $this->call(toeic_answer::class);
+        $this->call(part::class);
     }
 }

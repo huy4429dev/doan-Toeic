@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Trang chủ</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./font-anwesome/css/all.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -19,29 +20,56 @@
                     <div class="nav">
                         <div>
                             <div class="logo">
-                                <h3><a href="{{route('home')}}">ENGLISH SITE</a></h3>
+                                <h3><a href="{{route('home')}}">ENGLISH PRO</a></h3>
                             </div>
                             <ul class="page-member">
-                                <li><a href="about">About</a></li>
-                                <li><a href="about">Contact</a></li>
-                                <li><a href="about">Blog</a></li>
+                                <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                                <li><a href="{{route('contact')}}">Đặt câu hỏi</a></li>
+                                <li><a href="{{route('blog')}}">Tin tức</a></li>
                             </ul>
-                            <div class="phone">
-                                <i class="fas fa-phone-alt"></i>
-                                <span>093451323</span>
-                            </div>
 
                         </div>
                         <div>
                             <div class="user-login">
-                                <!-- <a href="login">Login</a>
-                                        <i class="fas fa-power-off"></i> -->
-                                <i class="fas fa-user-circle"></i>
-                                <span>User name</span>
+                                @if(!Session::has('user'))
+                                <a href="#" id="myBtn">ĐĂNG NHẬP </a>
+                                @else
+
+                                <img src="uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}" style="width: 42px;height: 42px;border-radius: 50%;position: relative;left: -5px;top: -3px;" ; alt="">
+                                <span>{{Session::get('user')->name}}</span>
                                 <ul class="user-info">
-                                    <li><a href="">Tài khoản</a></li>
-                                    <li><a href="">Đăng xuất</a></li>
+                                    <li><a href="{{route('student-profile')}}">Tài khoản</a></li>
+                                    <li><a href="{{route('student-logout')}}">Đăng xuất</a></li>
                                 </ul>
+                                @endif
+                            </div>
+                            <div id="myModal" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <div class="form-login">
+                                        <form action="{{route('student-login')}}" method="post">
+                                            @csrf
+                                            <p class="login-error" style="display:none; color:red;padding:0;margin:0;    margin-left: 52px;">
+                                                Sai tên đăng nhập hoặc mật khẩu
+
+                                            </p>
+                                            <div class="form-group">
+                                                <input type="email" name="email" placeholder="Email" value="member@gmail.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" placeholder="Mật khấu" value="123456">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" id="btn-submit" name="login" value="Đăng Nhập">
+                                            </div>
+                                            <a href="dang-ky-user">Đăng ký tài khoản </a>
+                                        </form>
+                                    </div>
+                                    <img id="form-login-img" src="uploads/image/login-user.png" alt="">
+                                </div>
+
                             </div>
                         </div>
 
@@ -51,11 +79,11 @@
         </div>
     </header>
     <main>
-        <div class="box-full">
+        <div class="box-full" style="padding: 50px;">
 
             <div class="container">
                 <div class="row">
-                    <div class="slider">
+                    <div class="slider" style="box-shadow: 1px 1px 7px 0px #00000045;">
                         <div id="demo" class="carousel slide" data-ride="carousel">
                             <ul class="carousel-indicators">
                                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -64,24 +92,24 @@
                             </ul>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="https:/www.w3schools.com/bootstrap4/chicago.jpg" alt="Los Angeles" width="1100" height="500">
+                                    <img src="uploads/image/learn-english-writing-grammar-online.png" alt="Los Angeles" style="width:1100px; height:618px">
                                     <div class="carousel-caption">
-                                        <h3>Los Angeles</h3>
-                                        <p>We had such a great time in LA!</p>
+                                        <h3>English Pro</h3>
+                                        <p>We will become "English Hero" </p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https:/www.w3schools.com/bootstrap4/la.jpg" alt="Chicago" width="1100" height="500">
-                                    <div class="carousel-caption">
-                                        <h3>Chicago</h3>
-                                        <p>Thank you, Chicago!</p>
+                                    <img src="uploads/image/english-course.jpg" alt="Chicago" style="width:1100px; height:618px">
+                                    <div class="carousel-caption" style="color: black;bottom: 26px;">
+                                        <h3>English Pro</h3>
+                                        <p>Step by step </p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https:/www.w3schools.com/bootstrap4/ny.jpg" alt="New York" width="1100" height="500">
-                                    <div class="carousel-caption">
-                                        <h3>New York</h3>
-                                        <p>We love the Big Apple!</p>
+                                    <img src="uploads/image/meses-en-ingles-1024x683.jpg" style="width:1100px; height:618px">
+                                    <div class="carousel-caption" style="color: #673AB7;bottom: 104px;">
+                                        <h3>English Pro</h3>
+                                        <p>Learn every day</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +128,7 @@
             <div class="content">
                 <div class="learn">
                     <div class="container">
-                        <h2>Chương Trình Học</h2>
+                        <h2 style="    padding: 30px 0 20px;">Chương Trình Học</h2>
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="learn-cate box">
@@ -170,7 +198,7 @@
                                         <div class="toeic">
                                             <h3>Luyện thi TOEIC</h3>
                                             <p>Bạn <b>đã nắm được ngữ pháp và từ vựng</b> tiếng Anh căn bản?</p>
-                                            <a href="#" class="go-toeic">BẮT ĐẦU LUYỆN NGAY</a>
+                                            <a href="toeic/danh-sach-de-thi" class="go-toeic">BẮT ĐẦU LUYỆN NGAY</a>
                                         </div>
                                     </div>
 
@@ -182,32 +210,33 @@
                                     <div class="card-learn">
                                         <div class="blog-learn">
                                             <div class="cate-ava">
-                                                <img src="./uploads/image/vi_tri_danh_tu_trong_cau.png" alt="">
+                                                <img src="./uploads/gramar/{{$topicGramarRandom->thumbnail}}" alt="">
                                             </div>
-                                            <h4>Vị trí của Danh từ trong câu</h4>
+                                            <h4>{{$topicGramarRandom->title}}</h4>
                                         </div>
                                         <div class="go-learn">
-                                            <a href="#">HỌC</a>
+                                            <a href="ngu-phap-tieng-anh/{{$topicGramarRandom->id}}/{{$topicGramarRandom->title}}.html">HỌC</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="rank-user">
+                                    @if(Session::has('user'))
+
                                     <div class="user-info box">
                                         <div class="user-head">
                                             <div class="user-avatar">
-                                                <img src="./uploads/image/user_icon.png" alt="avatar">
+                                                <img src="uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}" alt="avatar">
                                             </div>
                                             <h3 class="user-name">
-                                                User name
-
+                                                {{Session::get('user')->name}}
                                             </h3>
                                             <img src="./uploads/image/level_1.png" alt="" class="user-level">
 
                                         </div>
                                         <div class="user-deltail-socre">
-                                            <div class="score-of-week">
+                                            <!-- <div class="score-of-week">
                                                 <p class="score-title">
                                                     Điểm tuần này
                                                 </p>
@@ -222,13 +251,13 @@
                                                 <p class="score">
                                                     > 100
                                                 </p>
-                                            </div>
+                                            </div> -->
                                             <div class="score-of-week">
                                                 <p class="score-title">
                                                     Tổng điểm
                                                 </p>
                                                 <p class="score score-total" style="color: #87c52e;">
-                                                    0
+                                                    {{Session::get('user')->score}}
                                                 </p>
                                             </div>
                                             <div class="score-of-week">
@@ -236,12 +265,13 @@
                                                     Xếp hạng
                                                 </p>
                                                 <p class="score-rank">
-                                                    > 100
+                                                    {{$userRank}}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="chart box">
+                                    @endif
+                                    <div class="chart box" style="padding-bottom:12px">
                                         <div class="chart-head">
                                             <div class="chart-img">
                                                 <img src="./uploads/image/icon_ranking.png" alt="">
@@ -253,139 +283,30 @@
                                         </div>
                                         <div class="chart-list">
                                             <div class="chart-button">
-                                                <button>Xếp hạng tuần</button>
+                                                <button>Tổng Xếp hạng </button>
                                             </div>
                                             <ul class="chart-week">
+                                                @php
+                                                $i = 1;
+                                                @endphp
+                                                @foreach($users as $user)
                                                 <li class="one-user">
-                                                    <div class="rank-number">1</div>
+                                                    <div class="rank-number">{{$i}}</div>
                                                     <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
+                                                        <img class="avartar" src="./uploads/image/{{$user->avatar}}" alt="">
                                                         <span class="user-name">
-                                                                Hien
-                                                         </span>
+                                                            {{$user->name}}
+                                                        </span>
                                                         <img class="medal" src="./uploads/image/level_70.png" alt="">
                                                     </div>
                                                     <div class="chart-score">
-                                                        8709
+                                                        {{$user->score}}
                                                     </div>
                                                 </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">2</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">3</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">4</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">5</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">6</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">7</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">8</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">9</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
-                                                <li class="one-user">
-                                                    <div class="rank-number">10</div>
-                                                    <div class="user-info-rank">
-                                                        <img class="avartar" src="./uploads/image/hienWQ3.png" alt="">
-                                                        <span class="user-name">
-                                                                Hien
-                                                         </span>
-                                                        <img class="medal" src="./uploads/image/level_70.png" alt="">
-                                                    </div>
-                                                    <div class="chart-score">
-                                                        8709
-                                                    </div>
-                                                </li>
+                                                @php
+                                                $i++
+                                                @endphp
+                                                @endforeach
                                             </ul>
                                             <!-- <ul class="chart-total">
                                                 <li class="one-user">
@@ -530,19 +451,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>Tiếng Anh Mỗi Ngày Blog</h2>
+                                <h2 style="padding: 0 30px  20px 30px;">Tiếng Anh Mỗi Ngày Blog</h2>
                                 <div class="blog-list box">
                                     <div class="row">
+                                        @if(!$blogs->isEmpty())
                                         <div class="col-md-6">
                                             <div class="post-to-day">
                                                 <div class="card card-box">
-                                                    <a href=""><img src="https:/tienganhmoingay.com/media/images/uploads/2019/10/01/lam-kiem-tra-on-tap-tu-vung.png" class="card-img-top" alt="..."></a>
+                                                    <a href="./blog/{{$blogs->first()->id}}"><img src="./uploads/article/{{$blogs->first()->thumbnail}}" class="card-img-top" alt="..."></a>
                                                     <div class="card-body">
-                                                        <a href="">
-                                                            <h5 class="card-title box-title">Làm bài kiểm tra ôn tập từ vựng trên Tiếng Anh Mỗi Ngày</h5>
+                                                        <a href="./blog/{{$blogs->first()->id}}">
+                                                            <h5 class="card-title box-title">{{$blogs->first()->title}}</h5>
                                                         </a>
-                                                        <a href="">
-                                                            <p class="card-text box-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="./blog/{{$blogs->first()->id}}">
+                                                            <p class="card-text box-text">{{$blogs->first()->summary}}</p>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -550,65 +472,28 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="post-box">
-
+                                                @foreach($blogs as $blog)
+                                                @if($blog->id == $blogs->first()->id)
+                                                @php
+                                                continue;
+                                                @endphp
+                                                @endif
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="post">
-                                                            <img src="https:/tienganhmoingay.com/media/images/uploads/2019/08/26/chinh-thuc-doi-ten-thanh-tieng-anh-moi-ngay.png" alt="">
-                                                            <h4 class="title-post">
-                                                                Gia sư TOEIC có tên mới là "Tiếng Anh Mỗi Ngày"
+                                                            <a href="./blog/{{$blog->id}}"><img src="./uploads/article/{{$blog->thumbnail}}" alt=""></a>
+                                                            <h4 class="title-post" style="padding: 2px 22px;">
+                                                                <a style="    color: gray;font-weight: 400;" href="./blog/{{$blog->id}}"> {{$blog->title}}</a>
                                                             </h4>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="post">
-                                                            <img src="https:/tienganhmoingay.com/media/images/uploads/2019/08/26/chinh-thuc-doi-ten-thanh-tieng-anh-moi-ngay.png" alt="">
-                                                            <h4 class="title-post">
-                                                                Gia sư TOEIC có tên mới là "Tiếng Anh Mỗi Ngày"
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="post">
-                                                            <img src="https:/tienganhmoingay.com/media/images/uploads/2019/08/26/chinh-thuc-doi-ten-thanh-tieng-anh-moi-ngay.png" alt="">
-                                                            <h4 class="title-post">
-                                                                Gia sư TOEIC có tên mới là "Tiếng Anh Mỗi Ngày"
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="post">
-                                                            <img src="https:/tienganhmoingay.com/media/images/uploads/2019/08/26/chinh-thuc-doi-ten-thanh-tieng-anh-moi-ngay.png" alt="">
-                                                            <h4 class="title-post">
-                                                                Gia sư TOEIC có tên mới là "Tiếng Anh Mỗi Ngày"
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social">
-                    <div class="container">
-                        <div class="row" style="margin-bottom: 45px;">
-                            <div class="col-md-8">
-                                <div style="padding: 36px 0;">
-                                    <h2 class="learing-title">Học &amp; Đọc thêm ở Tiếng Anh Mỗi Ngày Facebook Page</h2>
-                                    <h4>Bạn hãy Like Page để tiện theo dõi bài mới</h4>
-                                </div>
-                                <div class="fb-page dl-desktop hidden-sm hidden-xs fb_iframe_widget" data-href="https:/www.facebook.com/tienganhmoingayonline/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"
-                                    data-width="500" data-height="640" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=956108007815000&amp;container_width=750&amp;height=640&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width=500"><span style="vertical-align: bottom; width: 500px; height: 640px;"><iframe name="f10fedd9f93286" width="500px" height="640px" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https:/www.facebook.com/v2.12/plugins/page.php?adapt_container_width=true&amp;app_id=956108007815000&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df30ff6902ef228%26domain%3Dtienganhmoingay.com%26origin%3Dhttps%253A%252F%252Ftienganhmoingay.com%252Ff28b7f38b21596c%26relation%3Dparent.parent&amp;container_width=750&amp;height=640&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width=500" style="border: none; visibility: visible; width: 500px; height: 640px;" class=""></iframe></span></div>
                             </div>
                         </div>
                     </div>
@@ -679,8 +564,7 @@
                                         </li>
                                     </ul>
                                     <p class="intro-text">Like Page để học tiếng Anh hàng ngày</p>
-                                    <div class="fb-page fb_iframe_widget" data-href="https:/www.facebook.com/tienganhmoingayonline/" data-tabs="timeline" data-height="150" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered"
-                                        fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=956108007815000&amp;container_width=246&amp;height=150&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline"><span style="vertical-align: bottom; width: 246px; height: 150px;"><iframe name="f100495a062a328" width="1000px" height="150px" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https:/www.facebook.com/v2.12/plugins/page.php?adapt_container_width=true&amp;app_id=956108007815000&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df76fbd7eae0818%26domain%3Dtienganhmoingay.com%26origin%3Dhttps%253A%252F%252Ftienganhmoingay.com%252Ff28b7f38b21596c%26relation%3Dparent.parent&amp;container_width=246&amp;height=150&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline" style="border: none; visibility: visible; width: 246px; height: 150px;" class=""></iframe></span></div>
+                                    <div class="fb-page fb_iframe_widget" data-href="https:/www.facebook.com/tienganhmoingayonline/" data-tabs="timeline" data-height="150" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=956108007815000&amp;container_width=246&amp;height=150&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline"><span style="vertical-align: bottom; width: 246px; height: 150px;"><iframe name="f100495a062a328" width="1000px" height="150px" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https:/www.facebook.com/v2.12/plugins/page.php?adapt_container_width=true&amp;app_id=956108007815000&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df76fbd7eae0818%26domain%3Dtienganhmoingay.com%26origin%3Dhttps%253A%252F%252Ftienganhmoingay.com%252Ff28b7f38b21596c%26relation%3Dparent.parent&amp;container_width=246&amp;height=150&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Ftienganhmoingayonline%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline" style="border: none; visibility: visible; width: 246px; height: 150px;" class=""></iframe></span></div>
                                 </div>
                             </div>
                         </div>
@@ -693,7 +577,55 @@
     <script src="https:/cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https:/maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./js/script.js "></script>
+    <script>
+        let displayProfile = false;
+        document.querySelector('.user-login span').addEventListener('click', function() {
+            if (displayProfile == true) {
+                document.querySelector('.user-info').style.display = 'none';
+                displayProfile = false;
+            } else {
+                document.querySelector('.user-info').style.display = 'block';
+                displayProfile = true;
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $("#btn-submit").click(function(e) {
+
+            e.preventDefault();
+
+            var password = $("input[name=password]").val();
+            var email = $("input[name=email]").val();
+
+            $.ajax({
+                type: 'POST',
+                url: "user/login",
+                data: {
+                    password: password,
+                    email: email
+                },
+                success: function(data) {
+                    if (data.success == 1) {
+                        window.location.href = "{{route('home')}}"
+                        $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
+                        $('#myModal').css('display', 'none');
+                        $(document).on('click', '.user-login span', function() {
+                            $('.user-info').toggle();
+                        });
+                    } else {
+                        $('.login-error').css('display', 'block');
+                    }
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

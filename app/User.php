@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','education','position','phone','address','slogan','skill',
     ];
 
     /**
@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function Skills($skills = []){
+        $styleSkill = ['HTML' => 'danger', 'Javascript' => 'warning', 'PHP' => 'info'];
+        foreach ($skills as $key => $skill) {
+            $style = $styleSkill[$skill] ?? 'success';
+            $skills[$key] = [
+                'skill' => $skill,
+                'style' => $style,
+            ];
+        }     
+         return $skills;
+    } 
 }

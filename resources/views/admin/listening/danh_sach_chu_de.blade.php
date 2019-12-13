@@ -44,18 +44,19 @@
       var topic = '#topic-' + $(this).val();
       $('div.alert-danger').css('display', 'none');
       $('div.alert-success').css('display', 'none');
-      var confirm = window.confirm('Bạn có muốn xóa chủ đề này không ?');
-      if (confirm) {
+      $(document).on('click', 'button.deleteConfirm', function() {
+        var confirm = $(this).val();
+        if (confirm == "true") {
+          $.ajax({
+            type: 'GET',
+            url: '/admin/listening/delete-topic/' + topicId,
+            success: function(data) {
 
-        $.ajax({
-          type: 'GET',
-          url: '/admin/listening/delete-topic/' + topicId,
-          success: function(data) {
-
-            $('#example2_wrapper').html(data.html);
-          }
-        });
-      }
+              $('#example2_wrapper').html(data.html);
+            }
+          });
+        }
+      })
     });
   })
 </script>

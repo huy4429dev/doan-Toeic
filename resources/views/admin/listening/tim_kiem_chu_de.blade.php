@@ -37,9 +37,9 @@
                         <thead>
                             <tr role="row">
                                 <th tabindex="0">id</th>
-                                <th class="sorting" tabindex="0">Title</th>
-                                <th class="sorting" tabindex="0">Thumbnail</th>
-                                <th class="sorting" tabindex="0">Action</th>
+                                <th tabindex="0">Title</th>
+                                <th tabindex="0">Thumbnail</th>
+                                <th tabindex="0">Action</th>
                             </tr>
                             @if (session('thongbao'))
                             <div class="alert alert-success alert-dismissible">
@@ -51,11 +51,11 @@
                             @endif
                             @foreach($topics as $topic)
                             <tr role="row" class="odd">
-                                <td class="sorting_1">{{ $topic->id }}</td>
-                                <td class="sorting_1">{{ $topic->title }}</td>
-                                <td class="sorting_1"><img width="70px" height="70px" src="/uploads/listening/{{ $topic->thumbnail }}" /></td>
+                                <td >{{ $topic->id }}</td>
+                                <td >{{ $topic->title }}</td>
+                                <td ><img width="50px"  src="/uploads/listening/{{ $topic->thumbnail }}" /></td>
                                 <td style="width: 50px;">
-                                    <a class="btn btn-danger"  href="listening/delete-topic/{{ $topic->id }}">Xóa</a>
+                                    <a class="btn btn-danger" href="listening/delete-topic/{{ $topic->id }}">Xóa</a>
                                 </td>
                                 </td>
                             </tr>
