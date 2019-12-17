@@ -22,7 +22,8 @@
                 <div class="box-tools">
                     <div class="input-group input-group-sm hidden-xs"
                          style="width: 200px; float: left; margin-left: 10px;">
-                        <input type="text" name="id" value="@if(isset($id)){{$id}}@endif" class="form-control pull-right" placeholder="Tìm kiếm">
+                        <input type="text" name="id" value="@if(isset($id)){{$id}}@endif"
+                               class="form-control pull-right" placeholder="Tìm kiếm">
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
@@ -52,6 +53,7 @@
                                 <th class="sorting text-center" tabindex="0">Tên từ vựng</th>
                                 <th class="sorting text-center" tabindex="0">Loại từ vựng</th>
                                 <th class="sorting text-center" tabindex="0">Phát âm</th>
+                                <th class="sorting text-center" tabindex="0">Ngữ nghĩa</th>
                                 <th class="sorting text-center" tabindex="0">Cách dùng từ vựng</th>
                                 <th tabindex="0"></th>
                                 <th tabindex="0"></th>
@@ -83,7 +85,8 @@
 
                                             {{ $item->pronounce }}
                                         </td>
-                                        <td class="sorting_1">{{$item->use }}</td>
+                                        <td class="sorting_1">{{$item->content }}</td>
+                                        <td class="sorting_1">{!! $item->use !!}</td>
                                         <td style="width: 50px;">
                                             <button type="button" class="btn btn-block btn-warning btn-sm"><a
                                                         href="update/{{ $item->id }}">Sửa</a></button>

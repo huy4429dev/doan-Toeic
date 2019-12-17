@@ -25,7 +25,7 @@
                             <ul class="page-member">
                                 <li><a href="{{route('about')}}">Giới thiệu</a></li>
                                 <li><a href="{{route('contact')}}">Đặt câu hỏi</a></li>
-                                <li><a href="{{route('contact')}}">Tin tức</a></li>
+                                <li><a href="{{route('blog')}}">Tin tức</a></li>
                             </ul>
 
                         </div>

@@ -74,6 +74,11 @@
                         <label>Link âm thanh:</label>
                         <input name="audio" value="{{$post->audio}}" type="text" class="form-control" placeholder="http://abc.mp3">
                     </div>
+                    <div>
+                        <label>Ngữ nghĩa:</label>
+                        <input name="content" value="{{$post->content}}" type="text" class="form-control"
+                               placeholder="------------------">
+                    </div>
                     <div class="form-group">
                         <label>Cách dùng từ vựng:</label>
                         <textarea name="use" type="text" class="form-control ckeditor" rows="10">

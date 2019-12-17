@@ -40,22 +40,24 @@ class PostController extends Controller
                 'word_type' => 'required',
                 'use' => 'required',
                 'pronounce' => 'required',
-                'audio' => 'required'
+                'audio' => 'required',
+                'content' => 'required'
             ],
             [
-                'title.required' => 'Bạn chưa nhập tên từ vững',
-                'title.unique' => 'Bạn nhập trùng tên từ vững',
-                'word_type.required' => 'Bạn chưa chọn loại từ vững',
+                'title.required' => 'Bạn chưa nhập tên từ vựng',
+                'title.unique' => 'Bạn nhập trùng tên từ vựng',
+                'word_type.required' => 'Bạn chưa chọn loại từ vựng',
                 'pronounce.required' => 'Bạn chưa nhập phát âm',
-                'use.required' => 'Bạn chưa nhập cách dùng từ vững',
-                'audio.required' => 'Bạn chưa nhập link âm thanh'
+                'use.required' => 'Bạn chưa nhập cách dùng từ vựng',
+                'audio.required' => 'Bạn chưa nhập link âm thanh',
+                'content.required' => 'Bạn chưa nhập ngữ nghĩa của từ vựng'
             ]
         );
 //
         $post = new Post();
         $post->fill($request->all());
         $post->save();
-        return redirect('admin/post-vocabulary/' . $request->topic_id)->with('thongbao', 'Thêm từ vững thành công');
+        return redirect('admin/post-vocabulary/' . $request->topic_id)->with('thongbao', 'Thêm từ vựng thành công');
     }
 
     public function getUpdate($id)
@@ -69,25 +71,26 @@ class PostController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|unique:posts,title',
+                'title' => 'required',
                 'word_type' => 'required',
                 'use' => 'required',
                 'pronounce' => 'required',
-                'audio' => 'required'
+                'audio' => 'required',
+                'content' => 'required'
             ],
             [
-                'title.required' => 'Bạn chưa nhập tên từ vững',
-                'title.unique' => 'Bạn nhập trùng tên từ vững',
-                'word_type.required' => 'Bạn chưa chọn loại từ vững',
+                'title.required' => 'Bạn chưa nhập tên từ vựng',
+                'word_type.required' => 'Bạn chưa chọn loại từ vựng',
                 'pronounce.required' => 'Bạn chưa nhập phát âm',
-                'use.required' => 'Bạn chưa nhập cách dùng từ vững',
-                'audio.required' => 'Bạn chưa nhập link âm thanh'
+                'use.required' => 'Bạn chưa nhập cách dùng từ vựng',
+                'audio.required' => 'Bạn chưa nhập link âm thanh',
+                'content.required' => 'Bạn chưa nhập ngữ nghĩa của từ vựng'
             ]
         );
         $post = Post::find($id);
         $post->update($request->all());
         $post->save();
-        return redirect('admin/post-vocabulary/' . $request->topic_id)->with('thongbao', 'Sửa từ vững thành công');
+        return redirect('admin/post-vocabulary/' . $request->topic_id)->with('thongbao', 'Sửa từ vựng thành công');
     }
 
 
@@ -96,7 +99,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $topic_id = $post->topic_id;
         $post->delete();
-        return redirect('admin/post-vocabulary/' . $topic_id)->with('thongbao', 'Xóa từ vững thành công');
+        return redirect('admin/post-vocabulary/' . $topic_id)->with('thongbao', 'Xóa từ vựng thành công');
     }
 
     public function search(Request $request, $id)

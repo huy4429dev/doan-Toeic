@@ -260,5 +260,4 @@ Route::prefix('toeic')->group(function (){
 Route::prefix('blog')->group(function (){
     Route::get('/{id}','BlogController@detail')->name('blog-detail');
     Route::get('/','BlogController@all')->name('blog');
-
 });

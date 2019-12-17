@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function detail($id){
-        $blogDetail =  Article::find($id);
-        return view('blog.blog-detail' , 
-        [
-            'blogDetail' => $blogDetail
-        ]);
+    public function detail($id)
+    {
+        $blogDetail = Article::find($id);
+        return view('blog.blog-detail',
+            [
+                'blogDetail' => $blogDetail
+            ]);
     }
-    public function all(){
-        
+
+    public function all()
+    {
+        return view('blog.blog', ['blog' => Article::all()]);
     }
 }

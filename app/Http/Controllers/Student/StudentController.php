@@ -28,7 +28,7 @@ class StudentController extends Controller
         return redirect()->route('home');
     }
     public function notLogged(){
-        return ' vui long dang nhap ';
+        return view('errors.login');
     } 
     
     public function profile(){

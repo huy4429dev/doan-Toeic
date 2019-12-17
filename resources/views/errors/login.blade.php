@@ -38,8 +38,8 @@
 </head>
 <body>
 <div class="text-center">
-    <h1><i class="fa fa-exclamation-circle"></i> Error 404: Page not found</h1>
-    <p>The page you have requested is not found.</p>
+    <h1><i class="fa fa-exclamation-circle"></i> Error: Vui lòng đăng nhập!</h1>
+    <p>please login!</p>
     <p><a class="btn btn-primary" href="javascript:window.history.back();">Go Back</a></p>
 </div>
 <script src="../asset/jquery-3.4.1.min.js "></script>

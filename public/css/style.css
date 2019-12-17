@@ -5,14 +5,15 @@
     list-style: none;
 }
 
-
 /* slider */
+a:hover {
+    text-decoration: none;
+}
 
 .carousel-inner img {
     width: 100%;
     height: 100%;
 }
-
 
 /* header */
 
@@ -267,7 +268,7 @@ img.user-level {
     flex-wrap: wrap;
 }
 
-.user-deltail-socre>div:nth-child(even) {
+.user-deltail-socre > div:nth-child(even) {
     margin-right: 0;
 }
 
@@ -400,8 +401,7 @@ li.one-user {
 }
 
 ul.chart-week li:nth-child(1) .rank-number {
-    background: #ff6045;
-    ;
+    background: #ff6045;;
 }
 
 ul.chart-week li:nth-child(2) .rank-number {
@@ -433,13 +433,13 @@ ul.chart-week li:nth-child(3) .rank-number {
     display: inline-block;
 }
 
-.learn-today.box>h3 {
+.learn-today.box > h3 {
     font-size: 25px;
     color: #333333;
 }
 
 .learn-today {
-    background-image: url(../../uploads/image/icon_de_xuat_ngu_phap.png);
+    /*background-image: url(../../uploads/image/icon_de_xuat_ngu_phap.png);*/
     background-repeat: no-repeat;
     background-position-y: 51px;
     background-position-x: 93%;
@@ -449,7 +449,6 @@ div.blog-learn {
     display: flex;
     margin-bottom: 20px;
 }
-
 
 /* blog */
 
@@ -500,7 +499,6 @@ h4.title-post {
     left: -23px;
 }
 
-
 /* social */
 
 h2.learing-title {
@@ -516,7 +514,6 @@ h2.learing-title {
 .social {
     padding-bottom: 1px;
 }
-
 
 /* footer */
 
@@ -652,7 +649,7 @@ ul.learned-word-wrapper {
     display: flex;
 }
 
-.have-learned ul>li {
+.have-learned ul > li {
     width: 59%;
     padding: 10px 0;
     font-size: 21px;
@@ -714,7 +711,7 @@ ul.learned-word-wrapper img {
     margin-top: 20px;
 }
 
-.topic-want>div {
+.topic-want > div {
     width: 17%;
 }
 
@@ -736,7 +733,7 @@ ul.learned-word-wrapper img {
     font-size: 26px;
 }
 
-.all-topics>div {
+.all-topics > div {
     width: 20%;
     margin: 20px 0;
 }
@@ -916,7 +913,7 @@ ul#meaning-example-wrapper img {
     flex-wrap: wrap;
 }
 
-.milestone-grammar-wrapper.clearfix>h3 {
+.milestone-grammar-wrapper.clearfix > h3 {
     width: 100%;
 }
 
@@ -1012,7 +1009,7 @@ h2.learing-title span {
     position: relative;
 }
 
-.milestone-grammar-wrapper.clearfix>h3 {
+.milestone-grammar-wrapper.clearfix > h3 {
     margin-left: 20px;
 }
 
@@ -1051,11 +1048,11 @@ h1.title-post {
     text-align: left !important;
 }
 
-.post-content>table {
+.post-content > table {
     border: 1px solid gray;
 }
 
-.post-content>table,
+.post-content > table,
 td,
 th {
     border: 1px solid gray;
@@ -1070,14 +1067,13 @@ ul.text-center {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 50px;
+    /*padding-bottom: 50px;*/
     padding-top: 16px;
 }
 
 div#content-test h2 {
     padding-top: 27px;
 }
-
 
 /*1111*/
 
