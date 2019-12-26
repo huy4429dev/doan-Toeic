@@ -67,7 +67,7 @@
                                             <a href="dang-ky-user">Đăng ký tài khoản </a>
                                         </form>
                                     </div>
-                                    <img id="form-login-img" src="uploads/image/login-user.png" alt="">
+                                    <img id="form-login-img" src="../uploads/image/login-user.png" alt="">
                                 </div>
 
                             </div>
@@ -94,7 +94,7 @@
                 <h4 class="success-msg text-success"></h4>
                 <div class="text-block d-flex justify-content-center">
                     <div class="btn-play">
-                        <a><img src="../uploads/image/audio_icon_blue.png" width="80" onclick="playSound('uploads/listening/{{$post->audio_ques}}')"></a>
+                        <a><img src="../uploads/image/audio_icon_blue.png" width="80" onclick="playSound('{{url("uploads/listening/$post->audio_ques")}}')"></a>
                     </div>
                     <div class="texts-wrapper listening-answer" id="answer-{{$post->id}}">{{$post->answer}}</div>
                 </div>
@@ -267,7 +267,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "user/login",
+                url: "../user/login",
                 data: {
                     password: password,
                     email: email

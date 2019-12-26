@@ -37,28 +37,20 @@
             <div class="form-group">
                 <div>
                     <label>Đề thi:</label>
-                    <select class="form-control" name="toeic_exam_id" id="toeic">
-                        @foreach($toeicexams as $toeicexam)
-                        <option @if($toeicexam->id == $toeicquestion->toeic_exam_id)
-                            {{"selected"}}
-                            @endif
-                            value="{{ $toeicexam->id }}">{{$toeicexam->title}}</option>
-                        @endforeach
+                    <select class="form-control" name="toeic_exam_id" id="toeic" disabled>
+                        <option value="{{ $toeicexam->id }}">{{$toeicexam->title}}</option>
                     </select>
                 </div>
                 <div>
                     <label>Phần đề thi:</label>
-                    <select class="form-control" name="toeic_part_id" id="toeic">
-                        @foreach($toeicparts as $toeicpart)
-                        <option @if($toeicpart->id == $toeicquestion->toeic_part_id)
-                            {{"selected"}}
-                            @endif
-                            value="{{ $toeicpart->id }}">{{$toeicpart->title}}</option>
-                        @endforeach
+                    <select class="form-control" name="toeic_part_id" id="toeic" disabled>
+                        <option value="{{ $toeicpart->id }}">{{$toeicpart->title}}</option>
                     </select>
                 </div>
                 <label> Hình ảnh </label>
-                <p><img width="100px;" src="/uploads/toeic/{{ $toeicquestion->thumbnail }}" />
+                    @if($toeicquestion->thumbnail)
+                    <p><img width="100px;" src="/uploads/toeic/{{ $toeicquestion->thumbnail }}" />
+                    @endif
                     <input type="file" name="thumbnail" class="form-control">
                     <label>Đáp án:</label>
                     <input name="answer" value="{{$toeicquestion->answer}}" type="text" class="form-control" placeholder="Ví du: A hoặc B C D">

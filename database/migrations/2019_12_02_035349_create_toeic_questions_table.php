@@ -17,8 +17,9 @@ class CreateToeicQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->mediumText('content')->nullable();
             $table->string('thumbnail',255)->nullable();
-            $table->integer('toeic_part_id');
-            $table->integer('toeic_exam_id');
+            $table->bigInteger('toeic_part_id');
+            $table->bigInteger('toeic_exam_id');
+            $table->bigInteger('toeic_para_id')->nullable();
             $table->string('answer',255);
             $table->timestamps();
         });

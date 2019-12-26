@@ -351,59 +351,59 @@
         </div>
     </div>
 </footer>
-<script src="../asset/jquery-3.4.1.min.js "></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="../asset/js/script.js "></script>
-<script>
-        let displayProfile = false;
-        document.querySelector('.user-login span').addEventListener('click', function() {
-            if (displayProfile == true) {
-                document.querySelector('.user-info').style.display = 'none';
-                displayProfile = false;
-            } else {
-                document.querySelector('.user-info').style.display = 'block';
-                displayProfile = true;
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+<script src="../../jquery-3.4.1.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../../js/script.js "></script>
+    <script>
+    let displayProfile = false;
+    document.querySelector('.user-login span').addEventListener('click', function() {
+        if (displayProfile == true) {
+            document.querySelector('.user-info').style.display = 'none';
+            displayProfile = false;
+        } else {
+            document.querySelector('.user-info').style.display = 'block';
+            displayProfile = true;
+        }
+    });
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-        $("#btn-submit").click(function(e) {
+    $("#btn-submit").click(function(e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            var password = $("input[name=password]").val();
-            var email = $("input[name=email]").val();
+        var password = $("input[name=password]").val();
+        var email = $("input[name=email]").val();
 
-            $.ajax({
-                type: 'POST',
-                url: "user/login",
-                data: {
-                    password: password,
-                    email: email
-                },
-                success: function(data) {
-                    if (data.success == 1) {
-                        window.location.href = "{{route('home')}}"
-                        $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
-                        $('#myModal').css('display', 'none');
-                        $(document).on('click', '.user-login span', function() {
-                            $('.user-info').toggle();
-                        });
-                    } else {
-                        $('.login-error').css('display', 'block');
-                    }
+        $.ajax({
+            type: 'POST',
+            url: "../../user/login",
+            data: {
+                password: password,
+                email: email
+            },
+            success: function(data) {
+                if (data.success == 1) {
+                    window.location.href = "{{route('home')}}"
+                    $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
+                    $('#myModal').css('display', 'none');
+                    $(document).on('click', '.user-login span', function() {
+                        $('.user-info').toggle();
+                    });
+                } else {
+                    $('.login-error').css('display', 'block');
                 }
-            });
-
+            }
         });
-    </script>
+
+    });
+</script>
 </body>
 
 </html>

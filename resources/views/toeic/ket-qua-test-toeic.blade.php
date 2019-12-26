@@ -97,13 +97,23 @@
                                 Test Date: {{date('d/m/Y', strtotime($history->created_at))}}
                             </div>
                         </li>
+                    
+                        <li class="reading-score">
+                            <div class="score-label">READING</div>
+                            <div class="score-value total-score">{{$totalRightReading}}</div>
+                            <div class="score-label">LISTENING</div>
+                            <div class="score-value total-score">{{$totalRightListening}}</div>
+                        </li>
                         <li class="total-score">
                             <div class="score-label">TOTAL SCORE</div>
                             <div class="score-value total-score">{{$totalScore}}</div>
                         </li>
                     </ul>
                     <div style="margin: 30px auto 60px; text-align: center;">
-                        <h3 style="width:400px; margin:auto; padding-bottom:50px">Chúc mừng bạn đã hoàn thành phần thi của mình, tiếp tục cố gắng nhé !</h3>
+                        <h2>Số điểm bạn đạt được: </h2>
+                        <h2>Reading Score: {{$reading}}</h2>
+                        <h2>Listening Score: {{$listening}}</h2>
+                        <h3 style="width:400px; margin:auto; padding-bottom:50px">Tiếp tục cố gắng nhé !</h3>
                     </div>
                 </section>
             </div>

@@ -35,24 +35,25 @@
             <div class="form-group">
                 <div>
                     <label>Đề thi:</label>
-                    <select class="form-control" name="toeic_exam_id" id="toeic">
-                        @foreach($toeicexams as $toeicexam)
+                    <select class="form-control" name="toeic_exam_id" id="toeic" disabled>
                         <option value="{{ $toeicexam->id }}">{{$toeicexam->title}}</option>
-                        @endforeach
                     </select>
                 </div>
                 <div>
                     <label>Phần đề thi:</label>
-                    <select class="form-control" name="toeic_part_id" id="toeic">
-                        @foreach($toeicparts as $toeicpart)
+                    <select class="form-control" name="toeic_part_id" id="toeic" disabled>
                         <option value="{{ $toeicpart->id }}">{{$toeicpart->title}}</option>
-                        @endforeach
                     </select>
                 </div>
                 <label> Hình ảnh  </label>
                 <input class="btn btn-app" type="file" name="thumbnail" multiple>
                 <label>Đáp án đúng:</label>
-                <input name="answer" type="text" class="form-control" placeholder="Ví du: A hoặc B C D">
+                <select name="answer" id="" class="form-control">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
                 <br>
                 <label>Chi tiết câu hỏi:</label>
                 <textarea name="content" type="text" class="form-control ckeditor" rows="10"></textarea>

@@ -33,7 +33,7 @@
                     <div>
                         <div class="user-login">
                             @if(!Session::has('user'))
-                                <a href="#" id="myBtn">ĐĂNG NHẬP </a>
+                                <a href="javascript:void(0)" id="myBtn">ĐĂNG NHẬP </a>
                             @else
 
                                 <img src="uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}"

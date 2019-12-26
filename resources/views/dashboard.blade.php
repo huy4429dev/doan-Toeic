@@ -27,7 +27,7 @@
                             <tbody>
                                 @if(!$contacts->isEmpty())
                                 @foreach($contacts as $contact)
-                                <tr>
+                                <tr style="cursor:pointer" onclick="getPage({{$contact->id}})">
                                     <td style="width:100px ; text-align:center">{{$id}}</td>
                                     <td style="width: 200px;" class="mailbox-name"><b>{{$contact->student->name}}</b></td>
                                     <td class="mailbox-subject"><a href="contact/{{$contact->id}}">{{$contact->title}}</a>
@@ -74,4 +74,11 @@
     <!-- /.row -->
 </section>
 <!-- /.content -->
+@stop
+@section('js')
+    <script>
+        function getPage(id){
+            window.location.href = "{{url('admin/contact/')}}/" + id ;
+        }
+    </script>
 @stop

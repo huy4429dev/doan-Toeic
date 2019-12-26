@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
  * Trang chủ
  */
 
-Route::get('/','HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 /**
  * Trang giới thiệu
@@ -32,13 +32,12 @@ Route::get('/gioi-thieu', function () {
  * Trang Liên hệ
  */
 
-Route::prefix('lien-he')->group(function (){
-    Route::get('/','Contact\ContactController@create')->name('contact');
-
+Route::prefix('lien-he')->group(function () {
+    Route::get('/', 'Contact\ContactController@create')->name('contact');
 });
 
 
- 
+
 // Route::get('/user/profile', function () {
 //     return view('student-profile');
 // })->name('student-profile')->middleware('student');
@@ -51,8 +50,7 @@ Route::prefix('user')->group(function () {
     Route::get('/logout', 'Student\StudentController@logout')->name('student-logout');
     Route::get('/profile', 'Student\StudentController@profile')->name('student-profile');
     Route::get('/error-logged', 'Student\StudentController@notLogged')->name('student-logged');
-    Route::post('/contact','Contact\ContactController@addContact')->name('student-contact')->middleware('student');
-    
+    Route::post('/contact', 'Contact\ContactController@addContact')->name('student-contact')->middleware('student');
 });
 
 
@@ -79,25 +77,25 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         /**
          *  Thêm - sửa - xóa chủ đề của từ vững
          */
-        Route::get('/','vocabulary\TopicController@index');
-        Route::post('/','vocabulary\TopicController@search');
-        Route::get('create','vocabulary\TopicController@getCreate');
-        Route::post('create','vocabulary\TopicController@postCreate');
-        Route::get('update/{id}','vocabulary\TopicController@getUpdate');
-        Route::post('update/{id}','vocabulary\TopicController@postUpdate');
-        Route::get('delete/{id}','vocabulary\TopicController@delete');
+        Route::get('/', 'vocabulary\TopicController@index');
+        Route::post('/', 'vocabulary\TopicController@search');
+        Route::get('create', 'vocabulary\TopicController@getCreate');
+        Route::post('create', 'vocabulary\TopicController@postCreate');
+        Route::get('update/{id}', 'vocabulary\TopicController@getUpdate');
+        Route::post('update/{id}', 'vocabulary\TopicController@postUpdate');
+        Route::get('delete/{id}', 'vocabulary\TopicController@delete');
     });
     Route::prefix('post-vocabulary')->group(function () {
         /**
          *  Thêm - sửa - xóa bài viết của mỗi chủ đề từ vững
          */
-        Route::get('/{id}','vocabulary\PostController@index');
-        Route::post('search/{id}','vocabulary\PostController@search')->name('post.vocabulary.search');
-        Route::get('create/{id}','vocabulary\PostController@getCreate');
-        Route::post('create','vocabulary\PostController@postCreate')->name('post.vocabulary.create');
-        Route::get('update/{id}','vocabulary\PostController@getUpdate');
-        Route::post('update/{id}','vocabulary\PostController@postUpdate');
-        Route::get('delete/{id}','vocabulary\PostController@delete');
+        Route::get('/{id}', 'vocabulary\PostController@index');
+        Route::post('search/{id}', 'vocabulary\PostController@search')->name('post.vocabulary.search');
+        Route::get('create/{id}', 'vocabulary\PostController@getCreate');
+        Route::post('create', 'vocabulary\PostController@postCreate')->name('post.vocabulary.create');
+        Route::get('update/{id}', 'vocabulary\PostController@getUpdate');
+        Route::post('update/{id}', 'vocabulary\PostController@postUpdate');
+        Route::get('delete/{id}', 'vocabulary\PostController@delete');
     });
     Route::prefix('listening')->group(function () {
         /**
@@ -164,7 +162,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('update/{id}', 'Toiec\ToeicPartController@saveUpdate');
         Route::get('delete/{id}', 'Toiec\ToeicPartController@delete');
     });
-    
+
     Route::prefix('toeic-question')->group(function () {
         /**
          *  Câu hỏi đề thi
@@ -176,6 +174,30 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('/update/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@saveUpdate')->name('saveUpdateQuestion');
         Route::get('delete/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@delete');
         Route::get('/search', 'Toiec\ToeicQuestionController@searchQuestion')->name('searchQuestion');
+    });
+
+    Route::prefix('toeic-question-has-para')->group(function () {
+        /**
+         *  Câu hỏi part 6 / 7 : 1 đoan văn có nhiều câu hỏi
+         */
+        Route::get('/{id}/{type}', 'Toiec\ToeicQuestionController@showHasPara')->name('showQuestionHasPara');
+        Route::get('/create/{id}/{type}', 'Toiec\ToeicQuestionController@createHasPara');
+        Route::post('/create/{id}/{type}', 'Toiec\ToeicQuestionController@saveCreateHasPara')->name('saveQuestionHasPara');
+        Route::get('/update/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@updateHasPara');
+        Route::post('/update/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@saveUpdateHasPara')->name('saveUpdateQuestionHasPara');
+
+        /**
+         * CRUD đoạn văn of question part 6 / 7
+         */
+
+        Route::get('/para/{id}/{type}', 'Toiec\ToeicQuestionController@showPara');
+        Route::get('/create/para/{id}/{type}', 'Toiec\ToeicQuestionController@createPara');
+        Route::post('/create/para/{id}/{type}', 'Toiec\ToeicQuestionController@savePara');
+        Route::get('/update/para/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@updatePara');
+        Route::post('/update/para/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@saveUpdatePara');
+        Route::get('/para/delete/{id}/{type}/{time}', 'Toiec\ToeicQuestionController@deletePara');
+
+
     });
 
     Route::prefix('toeic-answer')->group(function () {
@@ -190,7 +212,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('delete/{id}', 'Toiec\ToeicAnswerController@delete');
         Route::get('/search', 'Toiec\ToeicAnswerController@searchAnswer')->name('searchAnswer');
     });
-    
+
     Route::prefix('user')->group(function () {
         /**
          *  Tài khoản
@@ -219,10 +241,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         /**
          * Liên hệ
          */
-        Route::get('/{id}','Contact\ContactController@detail');
-        Route::post('/reply/{id}','Contact\ContactController@reply');
-        Route::get('/delete/{id}','Contact\ContactController@delete');
-
+        Route::get('/{id}', 'Contact\ContactController@detail');
+        Route::post('/reply/{id}', 'Contact\ContactController@reply');
+        Route::get('/delete/{id}', 'Contact\ContactController@delete');
     });
 });
 
@@ -238,26 +259,26 @@ Route::get('/ngu-phap-tieng-anh/{id}/{title}.html', 'Gramar\pagesGramarControlle
 
 
 //Lấy danh sách chủ đề từ vững
-Route::prefix('tu-vung')->group(function (){
-    Route::get('/','Vocabulary\VocabularyController@index');
-    Route::get('/{id}','Vocabulary\VocabularyController@detail');
-    Route::get('item/{id}','Vocabulary\VocabularyController@item');
+Route::prefix('tu-vung')->group(function () {
+    Route::get('/', 'Vocabulary\VocabularyController@index');
+    Route::get('/{id}', 'Vocabulary\VocabularyController@detail');
+    Route::get('item/{id}', 'Vocabulary\VocabularyController@item');
 });
 
 //Lấy danh sách chủ đề nghe
-Route::prefix('nghe')->group(function (){
-    Route::get('/{id}','Listening\PageListeningController@topicDetail')->name('listening');
-    Route::get('/get-answer/{id}','Listening\PageListeningController@getAnswer')->name('listening.get.answer');
+Route::prefix('nghe')->group(function () {
+    Route::get('/{id}', 'Listening\PageListeningController@topicDetail')->name('listening');
+    Route::get('/get-answer/{id}', 'Listening\PageListeningController@getAnswer')->name('listening.get.answer');
 });
 //Toeic page member
-Route::prefix('toeic')->group(function (){
-    Route::get('/danh-sach-de-thi','ExamToeic\ExamController@examlist')->name('toeic-exam');
-    Route::get('/thi-thu-toeic/{id}','ExamToeic\ExamController@examDetail')->name('toeic-exam-detail');
-    Route::post('/thi-thu-toeic/{idExam}','ExamToeic\ExamController@getResult')->name('toeic-get-result')->middleware('student');
+Route::prefix('toeic')->group(function () {
+    Route::get('/danh-sach-de-thi', 'ExamToeic\ExamController@examlist')->name('toeic-exam');
+    Route::get('/thi-thu-toeic/{id}', 'ExamToeic\ExamController@examDetail')->name('toeic-exam-detail');
+    Route::post('/thi-thu-toeic/{idExam}', 'ExamToeic\ExamController@getResult')->name('toeic-get-result')->middleware('student');
 });
 
 //Blog 
-Route::prefix('blog')->group(function (){
-    Route::get('/{id}','BlogController@detail')->name('blog-detail');
-    Route::get('/','BlogController@all')->name('blog');
+Route::prefix('blog')->group(function () {
+    Route::get('/{id}', 'BlogController@detail')->name('blog-detail');
+    Route::get('/', 'BlogController@all')->name('blog');
 });

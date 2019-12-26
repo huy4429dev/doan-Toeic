@@ -36,7 +36,7 @@
         <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 style="margin-bottom:20px">{{$toiecanswer->content}} </h4>
+                    <h4 style="margin-bottom:20px">{!!$toiecanswer->content!!} </h4>
 
 
                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
@@ -58,9 +58,7 @@
                                 <td style="width: 50px;">
                                     <button type="button" class="btn btn-block btn-warning btn-sm"><a style="color:white" href="update/{{$toiecanswer->id}}">Sửa</a></button>
                                 </td>
-                                <td style="width: 50px;">
-                                    <button type="button" class="btn btn-block btn-danger btn-sm"><a style="color:white" href="delete/{{$toiecanswer->id}}">Xóa</a></button>
-                                </td>
+                             
                             </tr>
                         </tbody>
                         <tfoot>

@@ -80,7 +80,7 @@
                             <tr role="row" class="odd">
                                 <td class="text-center">{{ $toeicpart->id }}</td>
                                 <td class="text-center">
-                                    <a href="/admin/toeic-question/{{$toeicpart->id}}/{{$id_exam}}">{{ $toeicpart->title }}</a></td>
+                                    <a href="/admin/toeic-question-has-para/{{$toeicpart->id}}/{{$id_exam}}">{{ $toeicpart->title }}</a></td>
                                 <td class="text-center">
                                     <img width="100px;" src="{{ $toeicpart->thumbnail }}" />
                                 </td>

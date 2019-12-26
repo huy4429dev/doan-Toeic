@@ -67,7 +67,7 @@
                                             <a href="dang-ky-user">Đăng ký tài khoản </a>
                                         </form>
                                     </div>
-                                    <img id="form-login-img" src="uploads/image/login-user.png" alt="">
+                                    <img id="form-login-img" src="../uploads/image/login-user.png" alt="">
                                 </div>
 
                             </div>
@@ -209,7 +209,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "user/login",
+                url: "../user/login",
                 data: {
                     password: password,
                     email: email

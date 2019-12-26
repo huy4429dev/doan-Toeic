@@ -13,4 +13,9 @@ class ToeicExam extends Model
     {
         return $this->hasMany('App\Models\ToeicQuestion', 'toeic_exam_id', 'id');
     }
+    public function toeicPara()
+    {
+        return $this->hasMany('App\Models\ToeicPara', 'toeic_exam_id', 'id');
+    }
+    
 }

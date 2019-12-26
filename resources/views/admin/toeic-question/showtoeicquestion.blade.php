@@ -53,13 +53,13 @@
                                 <td class="text-center">{{ $toeicquestion->id }}</td>
 
                                 <td class="text-center">
-                                    <a href="/admin/toeic-answer/{{$toeicquestion->id}}">{{ $toeicquestion->content }}</a></td>
+                                    <a href="/admin/toeic-answer/{{$toeicquestion->id}}">{!! $toeicquestion->content !!}</a></td>
                                 <td class="text-center">{{$toeicquestion->created_at}}</td>
                                 <td style="width: 50px;">
-                                    <button type="button" class="btn btn-block btn-warning btn-sm"><a style="color:white" href="/admin/toeic-question/update/{{$id}}/{{$type}}/{{ $toeicquestion->id }}">Sửa</a></button>
+                        <a class="btn btn-block btn-warning btn-sm" style="color:white" href="/admin/toeic-question/update/{{$id}}/{{$type}}/{{ $toeicquestion->id }}">Sửa</a>
                                 </td>
                                 <td style="width: 50px;">
-                                    <button type="button" class="btn btn-block btn-danger btn-sm"><a style="color:white" href="/admin/toeic-question/delete/{$id}}/{{$type}}/{{ $toeicquestion->id }}">Xóa</a></button>
+                                    <a  class="btn btn-block btn-danger btn-sm" style="color:white" href="/admin/toeic-question/delete/{$id}}/{{$type}}/{{ $toeicquestion->id }}">Xóa</a>
                                 </td>
                             </tr>
                             @endforeach

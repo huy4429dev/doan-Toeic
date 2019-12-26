@@ -162,70 +162,70 @@
     </style>
 </head>
 <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="nav">
-                        <div>
-                            <div class="logo">
-                                <h3><a href="{{route('home')}}">ENGLISH PRO</a></h3>
-                            </div>
-                            <ul class="page-member">
-                                <li><a href="{{route('about')}}">Giới thiệu</a></li>
-                                <li><a href="{{route('contact')}}">Đặt câu hỏi</a></li>
-                                <li><a href="{{route('blog')}}">Tin tức</a></li>
-                            </ul>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav">
+                    <div>
+                        <div class="logo">
+                            <h3><a href="{{route('home')}}">ENGLISH PRO</a></h3>
                         </div>
-                        <div>
-                            <div class="user-login">
-                                @if(!Session::has('user'))
-                                <a href="#" id="myBtn">ĐĂNG NHẬP </a>
-                                @else
-
-                                <img src="../../uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}" style="width: 42px;height: 42px;border-radius: 50%;position: relative;left: -5px;top: -3px;" ; alt="">
-                                <span>{{Session::get('user')->name}}</span>
-                                <ul class="user-info">
-                                    <li><a href="{{route('student-profile')}}">Tài khoản</a></li>
-                                    <li><a href="{{route('student-logout')}}">Đăng xuất</a></li>
-                                </ul>
-                                @endif
-                            </div>
-                            <div id="myModal" class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <div class="form-login">
-                                        <form action="{{route('student-login')}}" method="post">
-                                            @csrf
-                                            <p class="login-error" style="display:none; color:red;padding:0;margin:0;    margin-left: 52px;">
-                                                Sai tên đăng nhập hoặc mật khẩu
-
-                                            </p>
-                                            <div class="form-group">
-                                                <input type="email" name="email" placeholder="Email" value="member@gmail.com">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" placeholder="Mật khấu" value="123456">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="submit" id="btn-submit" name="login" value="Đăng Nhập">
-                                            </div>
-                                            <a href="dang-ky-user">Đăng ký tài khoản </a>
-                                        </form>
-                                    </div>
-                                    <img id="form-login-img" src="uploads/image/login-user.png" alt="">
-                                </div>
-
-                            </div>
-                        </div>
+                        <ul class="page-member">
+                            <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                            <li><a href="{{route('contact')}}">Đặt câu hỏi</a></li>
+                            <li><a href="{{route('blog')}}">Tin tức</a></li>
+                        </ul>
 
                     </div>
+                    <div>
+                        <div class="user-login">
+                            @if(!Session::has('user'))
+                            <a href="#" id="myBtn">ĐĂNG NHẬP </a>
+                            @else
+
+                            <img src="../../uploads/image/{{  empty(Session::get('user')->avatar) ? 'user_icon.png' : Session::get('user')->avatar }}" style="width: 42px;height: 42px;border-radius: 50%;position: relative;left: -5px;top: -3px;" ; alt="">
+                            <span>{{Session::get('user')->name}}</span>
+                            <ul class="user-info">
+                                <li><a href="{{route('student-profile')}}">Tài khoản</a></li>
+                                <li><a href="{{route('student-logout')}}">Đăng xuất</a></li>
+                            </ul>
+                            @endif
+                        </div>
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="form-login">
+                                    <form action="{{route('student-login')}}" method="post">
+                                        @csrf
+                                        <p class="login-error" style="display:none; color:red;padding:0;margin:0;    margin-left: 52px;">
+                                            Sai tên đăng nhập hoặc mật khẩu
+
+                                        </p>
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email" value="member@gmail.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" placeholder="Mật khấu" value="123456">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" id="btn-submit" name="login" value="Đăng Nhập">
+                                        </div>
+                                        <a href="dang-ky-user">Đăng ký tài khoản </a>
+                                    </form>
+                                </div>
+                                <img id="form-login-img" src="../../uploads/image/login-user.png" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 <main>
     <div class="main-content" style="padding: 40px 139px;">
         <div class="container bgr-white pb-5">
@@ -282,19 +282,19 @@
                                     </div>
                                     <div class="answer">
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
                                             <label for="{{$question->A.$question->id}}">({{$question->A}})</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
                                             <label for="{{$question->B.$question->id}}">({{$question->B}})</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
                                             <label for="{{$question->C.$question->id}}">({{$question->C}})</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
                                             <label for="{{$question->D.$question->id}}">({{$question->D}})</label>
                                         </div>
                                         <div class="one-anwer">
@@ -326,15 +326,15 @@
                                     @endif
                                     <div class="answer">
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
                                             <label for="{{$question->A.$question->id}}">({{$question->A}})</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
                                             <label for="{{$question->B.$question->id}}">({{$question->B}})</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
                                             <label for="{{$question->C.$question->id}}">({{$question->C}})</label>
                                         </div>
                                         <div class="one-anwer">
@@ -367,19 +367,19 @@
                                     @endif
                                     <div class="answer">
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
                                             <label for="{{$question->A.$question->id}}">(A) {{$question->A}}.</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
                                             <label for="{{$question->B.$question->id}}">(B) {{$question->B}}.</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
                                             <label for="{{$question->C.$question->id}}">(C) {{$question->C}}.</label>
                                         </div>
                                         <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
+                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
                                             <label for="{{$question->D.$question->id}}">(D) {{$question->D}}.</label>
                                         </div>
                                         <div class="one-anwer">
@@ -404,33 +404,33 @@
                                 @if(!$partFour->isEmpty())
                                 @foreach($partFour as $question)
                                 <div class="one-question mt-3">
-                                    <span style="display:block">{{$i}}.{{$question->content}}</span>
-                                    @if(!empty($question->thumbnail))
-                                    <div>
-                                        <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
-                                    </div>
-                                    @endif
-                                    <div class="answer">
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
-                                            <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                    <span style="display:block">{{$i}}. {!!$question->content!!}/span>
+                                        @if(!empty($question->thumbnail))
+                                        <div>
+                                            <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
-                                            <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
+                                        @endif
+                                        <div class="answer">
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
+                                                <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
+                                                <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
+                                                <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
+                                                <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                            </div>
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
-                                            <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
-                                            <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
-                                        </div>
-                                    </div>
                                 </div>
                                 @php
                                 $i++;
@@ -452,33 +452,33 @@
                                 @if(!$partFive->isEmpty())
                                 @foreach($partFive as $question)
                                 <div class="one-question mt-3">
-                                    <span style="display:block">{{$i}}.{{$question->content}}</span>
-                                    @if(!empty($question->thumbnail))
-                                    <div>
-                                        <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
-                                    </div>
-                                    @endif
-                                    <div class="answer">
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
-                                            <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                    <span style="display:block">{{$i}}. {!!$question->content!!}/span>
+                                        @if(!empty($question->thumbnail))
+                                        <div>
+                                            <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
-                                            <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
+                                        @endif
+                                        <div class="answer">
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
+                                                <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
+                                                <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
+                                                <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
+                                                <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                            </div>
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
-                                            <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
-                                            <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
-                                        </div>
-                                    </div>
                                 </div>
                                 @php
                                 $i++;
@@ -493,97 +493,113 @@
 
                                 <h3>PART 6</h3>
                                 <span class="label direction">Directions:</span>
-                                <span>Read the texts that follow. A word, phrase or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.</span>
-                                <div class="example">
-                                    <span class="label example">Example:</span>
-                                    <div class="example-part1 text-center">
-                                        <img src="../../uploads/toeic/" alt="" width="300px">
-                                    </div>
-                                </div>
-                                @if(!$partSix->isEmpty())
-                                @foreach($partSix as $question)
+                                <span>In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.</span>
+                                @if(!$partSeven->isEmpty())
+                                @foreach($partSix as $para)
+                                @if(!$para->toeicQuestion->isEmpty())
                                 <div class="one-question mt-3">
-                                    <span style="display:block">{{$i}}</span>
-                                    <div>
-                                        <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
+                                    <p style="font-weight:bold">Question {{$i}} {{ $para->toeicQuestion->count() > 1 ? '-'.$i + $para->toeicQuestion->count() - 1 : ''}} refer to the following web page</p>
+                                    <p>Đoạn văn: </p>
+                                    <div class="toeic-para">
+                                        {!! $para->content !!}
                                     </div>
-                                    <div class="answer">
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
-                                            <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                    @foreach($para->toeicQuestion as $question)
+                                    <div class="one-question mt-3">
+                                        <span style="display:block">{{$i}}. {!!$question->content!!}</span>
+                                        @if(!empty($question->thumbnail))
+                                        <div>
+                                            <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
-                                            <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
-                                            <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
-                                            <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                        @endif
+                                        <div class="answer">
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
+                                                <label for="{{$question->A.$question->id}}">(A) {{$question->toeicAnswer->A}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
+                                                <label for="{{$question->B.$question->id}}">(B) {{$question->toeicAnswer->B}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
+                                                <label for="{{$question->C.$question->id}}">(C) {{$question->toeicAnswer->C}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
+                                                <label for="{{$question->D.$question->id}}">(D) {{$question->toeicAnswer->D}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                @php
-                                $i++;
-                                @endphp
-                                @endforeach
-                                @else
-                                <p class="py-3" style="color:red">Hiện tại chưa có câu hỏi PART 6</p>
-                                @endif
+                                    @php $i++ @endphp
+                                    @endforeach
+                                    @endif
+                                    @endforeach
+                                    @else
+                                    <p>Hiện tại chưa có câu hỏi cho part này </p>
+                                    @endif
 
+                                </div>
                             </div>
-                            <div class="toeic-part-7">
+                            <div class="toeic-part-6">
 
                                 <h3>PART 7</h3>
                                 <span class="label direction">Directions:</span>
                                 <span>In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.</span>
                                 @if(!$partSeven->isEmpty())
-                                @foreach($partFive as $question)
+                                @foreach($partSeven as $para)
+                                @if(!$para->toeicQuestion->isEmpty())
                                 <div class="one-question mt-3">
-                                    <span style="display:block">{{$i}}</span>
-                                    <div>
-                                        <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
+                                    <p style="font-weight:bold">Question {{$i}} {{ $para->toeicQuestion->count() > 1 ? '-'. ($i + $para->toeicQuestion->count() - 1) : ''}} refer to the following web page</p>
+                                    <p>Đoạn văn: </p>
+                                    <div class="toeic-para">
+                                        {!! $para->content !!}
                                     </div>
-                                    <div class="answer">
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="{{$question->A}}">
-                                            <label for="{{$question->A.$question->id}}">(A) {{$question->A}}</label>
+                                    @foreach($para->toeicQuestion as $question)
+                                    <div class="one-question mt-3">
+                                        <span style="display:block">{{$i}}. {!!$question->content!!}</span>
+                                        @if(!empty($question->thumbnail))
+                                        <div>
+                                            <img class="pt-3 " src="../../uploads/toeic/{{$question->thumbnail}}" width="400px">
                                         </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="{{$question->B}}">
-                                            <label for="{{$question->B.$question->id}}">(B) {{$question->B}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="{{$question->C}}">
-                                            <label for="{{$question->C.$question->id}}">(C) {{$question->C}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="{{$question->D}}">
-                                            <label for="{{$question->D.$question->id}}">(D) {{$question->D}}</label>
-                                        </div>
-                                        <div class="one-anwer">
-                                            <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                        @endif
+                                        <div class="answer">
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->A.$question->id}}" value="A">
+                                                <label for="{{$question->A.$question->id}}">(A) {{$question->toeicAnswer->A}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->B.$question->id}}" value="B">
+                                                <label for="{{$question->B.$question->id}}">(B) {{$question->toeicAnswer->B}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->C.$question->id}}" value="C">
+                                                <label for="{{$question->C.$question->id}}">(C) {{$question->toeicAnswer->C}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" id="{{$question->D.$question->id}}" value="D">
+                                                <label for="{{$question->D.$question->id}}">(D) {{$question->toeicAnswer->D}}</label>
+                                            </div>
+                                            <div class="one-anwer">
+                                                <input type="radio" name="{{$question->id}}" value="0_0" style="display:none" checked />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                @php
-                                $i++;
-                                @endphp
-                                @endforeach
-                                @else
-                                <p class="py-3" style="color:red">Hiện tại chưa có câu hỏi PART 7</p>
-                                @endif
+                                    @php $i++ @endphp
+                                    @endforeach
+                                    @endif
+                                    @endforeach
+                                    @else
+                                    <p>Hiện tại chưa có câu hỏi cho part này </p>
+                                    @endif
 
+                                </div>
                             </div>
-                            <div class="submit-answer">
-                                <input class='btn btn-primary' type="submit" value="Nộp bài">
-                            </div>
+                                <div class="submit-answer">
+                                    <input class='btn btn-primary' type="submit" value="Nộp bài">
+                                </div>
 
                         </form>
 
@@ -803,55 +819,55 @@
         document.querySelector('#getResult').submit();
     }, 2 * 60 * 60 * 1000);
 </script>
-    <script>
-        let displayProfile = false;
-        document.querySelector('.user-login span').addEventListener('click', function() {
-            if (displayProfile == true) {
-                document.querySelector('.user-info').style.display = 'none';
-                displayProfile = false;
-            } else {
-                document.querySelector('.user-info').style.display = 'block';
-                displayProfile = true;
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+<script>
+    let displayProfile = false;
+    document.querySelector('.user-login span').addEventListener('click', function() {
+        if (displayProfile == true) {
+            document.querySelector('.user-info').style.display = 'none';
+            displayProfile = false;
+        } else {
+            document.querySelector('.user-info').style.display = 'block';
+            displayProfile = true;
+        }
+    });
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-        $("#btn-submit").click(function(e) {
+    $("#btn-submit").click(function(e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            var password = $("input[name=password]").val();
-            var email = $("input[name=email]").val();
+        var password = $("input[name=password]").val();
+        var email = $("input[name=email]").val();
 
-            $.ajax({
-                type: 'POST',
-                url: "user/login",
-                data: {
-                    password: password,
-                    email: email
-                },
-                success: function(data) {
-                    if (data.success == 1) {
-                        window.location.href = "{{route('home')}}"
-                        $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
-                        $('#myModal').css('display', 'none');
-                        $(document).on('click', '.user-login span', function() {
-                            $('.user-info').toggle();
-                        });
-                    } else {
-                        $('.login-error').css('display', 'block');
-                    }
+        $.ajax({
+            type: 'POST',
+            url: "../../user/login",
+            data: {
+                password: password,
+                email: email
+            },
+            success: function(data) {
+                if (data.success == 1) {
+                    window.location.href = "{{route('home')}}"
+                    $('#myBtn').replaceWith(' <i class="fas fa-user-circle"></i><span>' + data.username + '</span> <ul class="user-info"><li><a href="user/profile">Tài khoản</a></li><li><a href="{{route("student-logout")}}">Đăng xuất</a></li></ul>');
+                    $('#myModal').css('display', 'none');
+                    $(document).on('click', '.user-login span', function() {
+                        $('.user-info').toggle();
+                    });
+                } else {
+                    $('.login-error').css('display', 'block');
                 }
-            });
-
+            }
         });
-    </script>
+
+    });
+</script>
 </body>
 
 </html>
